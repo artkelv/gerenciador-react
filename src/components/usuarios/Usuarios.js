@@ -13,12 +13,14 @@ const Usuarios = () => {
             </section>
             <section>
                 <table className="tbl-usuarios">
-                    <tr className="dados-usuarios">
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Cargo</th>
-                        <th>Ações</th>
-                    </tr>
+                    <thead>
+                        <tr className="dados-usuarios">
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>Cargo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
                 </table>
             </section>
         </div>
