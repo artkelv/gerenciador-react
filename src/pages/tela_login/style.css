@@ -1,0 +1,77 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inria Serif', serif;
+    font-family: 'Roboto', sans-serif;
+}
+.container-login{
+    display: flex;
+}
+.content-welcome{
+    background-color: #4176fc;
+    letter-spacing: 2px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    width: 50%;
+    height: 100vh;
+}
+#title-login{
+    font-size: 35px;
+    text-transform: uppercase;
+}
+.content-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    width: 50%;
+    height: 100vh;
+}
+.make-login{
+    font-size: 25px;
+    color: #8FAEFD;
+    letter-spacing: 4px;
+}
+.box-user{
+    display: flex;
+    flex-direction: column;
+}
+.box-pass{
+    display: flex;
+    flex-direction: column;
+}
+.label-email{
+    color: rgb(161, 157, 157);
+    margin: 5px 0;
+}
+.label-pass{
+    color: rgb(161, 157, 157);
+    margin: 5px 0;
+}
+.input-login{
+    width: 250px;
+    height: 25px;
+}
+.input-pass{
+    width: 250px;
+    height: 25px;  
+}
+.btn-login{
+    margin: 20px 0;
+    width: 260px;
+    height: 25px; 
+    border: none;
+    background-color: #8FAEFD;
+    color:#fff;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.btn-login:hover{
+    background-color:#6d95fc;
+}
+.all-rights{
+    font-size: 11px;
+}

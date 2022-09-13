@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inria Serif', serif;
+    font-family: 'Roboto', sans-serif;
+}
+.conteudo-usuario{
+    display: flex;
+}
+.secao-usuario{
+    width: 80vw;
+    height: 100vh;
+    margin: 0 10px;
+}
+.titulo-usuarios{
+    display: flex;
+    justify-content: center;
+}
+.subtitulo-usuarios{
+    display: inline-block;
+    border-bottom: 2px solid #4176fc;
+    padding: 15px;
+    color: rgb(95, 95, 95);
+}
+.btn-novo-usuario{
+    background-color: #4176fc;
+    border: none;
+    width: 100px;
+    height: 30px;
+    margin: 70px 20vh 40px;
+    color: #fff;
+    cursor: pointer;
+}
+.btn-novo-usuario:hover{
+    background-color: #1a5afa; 
+}
+.achar-usuario{
+    margin: 0 20vh;
+}
+.nome-usuario{
+    font-weight:300;
+    padding: 5px 0px;
+    font-size: 13px;
+    color: rgb(161, 161, 161);
+}
+.entrada-nome{
+    height: 30px;
+    width: 500px;
+    outline: unset;
+    padding: 0 10px;
+}
+.btn-pesquisar{
+    background-color: #396ffa;
+    border: none;
+    width: 150px;
+    height: 32px;
+    color: #fff;
+    cursor: pointer;
+}
+.btn-pesquisar:hover{
+    background-color: #1a5afa;
+}
+.tbl-usuarios{
+    margin: 70px 20vh 40px;
+    border-collapse: collapse;
+}
+
+.dados-usuarios th{
+    width: 200px;
+    padding: 10px 0;
+    color: rgb(58, 58, 58);
+    border:1px solid rgb(114, 114, 114);
+}
