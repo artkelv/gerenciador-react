@@ -1,10 +1,9 @@
-import TelaHome from "./pages/tela_home/Tela_home.js";
-import TelaLogin from "./pages/tela_login/Tela_login.js";
+import RouterProjeto from "../src/routers/Router";
 
 function App() {
   return (
     <div className="App">
-      <TelaHome/>
+      <RouterProjeto/>
     </div>
   );
 }
