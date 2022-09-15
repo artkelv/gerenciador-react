@@ -1,6 +1,11 @@
 import "../tela_login/style.css";
 
+import { useNavigate } from "react-router-dom";
+
 const TelaLogin = () => {
+    
+    const navigate = useNavigate();
+    
     return(
         <div className="container-login">
             <section className="content-welcome">
@@ -21,7 +26,7 @@ const TelaLogin = () => {
                         <input className="input-pass" type="password" />
                     </div>
             
-                    <button className="btn-login">Entrar</button>
+                    <button className="btn-login" onClick={() => navigate("/home")}>Entrar</button>
                 </form>
                 <p className="all-rights">© Copyright 2022. All Rights Reserved.</p>
             </main>
