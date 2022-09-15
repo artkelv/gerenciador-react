@@ -69,46 +69,46 @@ const renderizaTela = () => {
               <span className="title">Inicio</span>
             </a>
           </li>
-          <li className="item">
+          <li className="item" onClick={() => renderizaAtendimento()}>
             <a href="#" className="ancor">
               <ion-icon name="call"></ion-icon>
-              <span className="title" onClick={() => renderizaAtendimento()}>Atendimento</span>
+              <span className="title">Atendimento</span>
             </a>
           </li>
-          <li className="item">
+          <li className="item" onClick={() => renderizaChamados()}>
             <a href="#" className="ancor">
               <ion-icon name="list-box"></ion-icon>
-              <span className="title" onClick={() => renderizaChamados()}>Chamados</span>
+              <span className="title">Chamados</span>
             </a>
           </li>
-          <li className="item">
+          <li className="item" onClick={() => renderizaClientes()}>
             <a href="#" className="ancor">
               <ion-icon name="contacts"></ion-icon>
-              <span className="title" onClick={() => renderizaClientes()}>Clientes</span>
+              <span className="title" >Clientes</span>
             </a>
           </li>
-          <li className="item">
+          <li className="item" onClick={() => renderizaSoftwares()}>
             <a href="#" className="ancor">
               <ion-icon name="tv"></ion-icon>
-              <span className="title" onClick={() => renderizaSoftwares()}>Softwares</span>
+              <span className="title">Softwares</span>
             </a>
           </li>
-          <li className="item">
+          <li className="item" onClick={() => renderizaUsuarios()}>
             <a href="#" className="ancor">
               <ion-icon name="contact"></ion-icon>
-              <span className="title" onClick={() => renderizaUsuarios()}>Usúarios</span>
+              <span className="title" >Usúarios</span>
             </a>
           </li>
-          <li className="item">
+          <li className="item" onClick={() => renderizaRelatorios()}>
             <a href="#" className="ancor">
               <ion-icon name="bookmarks"></ion-icon>
-              <span className="title" onClick={() => renderizaRelatorios()}>Relatórios</span>
+              <span className="title">Relatórios</span>
             </a>
           </li>
         </ul>
         <ul>
-          <li className="bottom">
-            <a href="#" className="over">
+          <li className="bottom" >
+            <a href="" className="over">
               <ion-icon name="power"></ion-icon>
               <span className="title">sair</span>
             </a>

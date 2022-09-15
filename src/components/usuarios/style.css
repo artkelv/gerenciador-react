@@ -4,13 +4,12 @@
     font-family: 'Inria Serif', serif;
     font-family: 'Roboto', sans-serif;
 }
-.conteudo-usuario{
-    display: flex;
-}
-.secao-usuario{
-    width: 80vw;
+.sessao-usuario{
+    width: 900px;
     height: 100vh;
     margin: 0 10px;
+    padding-left: 60px;
+    overflow-x: scroll;
 }
 .titulo-usuarios{
     display: flex;
@@ -19,7 +18,7 @@
 .subtitulo-usuarios{
     display: inline-block;
     border-bottom: 2px solid #4176fc;
-    padding: 15px;
+    padding: 15px 0;
     color: rgb(95, 95, 95);
 }
 .btn-novo-usuario{
@@ -27,15 +26,58 @@
     border: none;
     width: 100px;
     height: 30px;
-    margin: 70px 20vh 40px;
+    margin: 25px 0 20px;
     color: #fff;
     cursor: pointer;
 }
 .btn-novo-usuario:hover{
     background-color: #1a5afa; 
 }
-.achar-usuario{
-    margin: 0 20vh;
+.form-usuario{
+    display: none;
+}
+.container-usuario{
+    display: flex;
+}
+.cadastrar-usuario{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+}
+.ipt-usuarios{
+    width: 200px;
+    height: 30px;
+    outline: unset;
+    padding: 0 10px;
+}
+.ipt-titulo{
+    font-weight:300;
+    padding: 5px 0px;
+    font-size: 13px;
+    color: rgb(161, 161, 161);
+}
+.ipt-select{
+    width: 225px;
+    height: 34px;
+    outline: unset;
+    padding: 0 10px;
+}
+.segundo-container-usario{
+    margin: 0px 50px;
+}
+.btn-cadastrar-usuario{
+    background-color: rgb(70, 216, 70);
+    border: none;
+    margin-top: 25px;
+    width: 225px;
+    height: 30px;
+    outline: unset;
+    padding: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-cadastrar-usuario:hover{
+    background-color: rgb(16, 189, 16);
 }
 .nome-usuario{
     font-weight:300;
@@ -56,15 +98,15 @@
     height: 32px;
     color: #fff;
     cursor: pointer;
+    margin-left: 5px;
 }
 .btn-pesquisar:hover{
     background-color: #1a5afa;
 }
 .tbl-usuarios{
-    margin: 70px 20vh 40px;
+    margin: 70px  0;
     border-collapse: collapse;
 }
-
 .dados-usuarios th{
     width: 200px;
     padding: 10px 0;

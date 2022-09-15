@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inria Serif', serif;
+    font-family: 'Roboto', sans-serif;
+}
+.sessao-cliente{
+    width: 900px;
+    height: 100vh;
+    margin: 0 10px;
+    padding-left: 60px;
+    overflow-x: scroll;
+}
+.titulo-cliente{
+    display: flex;
+    justify-content: center;
+}
+.subtitulo-cliente{
+    display: inline-block;
+    border-bottom: 2px solid #4176fc;
+    padding: 15px 0;
+    color: rgb(95, 95, 95);
+}
+.btn-novo-cliente{
+    background-color: #4176fc;
+    border: none;
+    width: 100px;
+    height: 30px;
+    margin: 25px 0 20px;
+    color: #fff;
+    cursor: pointer;
+}
+.btn-novo-cliente:hover{
+    background-color: #1a5afa; 
+}
+.efetua-cadastro{
+    background-color: rgb(70, 216, 70);
+    border: none;
+    margin: 20px 0;
+    width: 205px;
+    height: 30px;
+    outline: unset;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cadastrar-empresa{
+    display: none;
+}
+.primeiro-container-cliente{
+    display: flex;
+    flex-direction: column;
+}
+.rsocial-nome{
+    font-weight:300;
+    font-size: 13px;
+    color: rgb(161, 161, 161);
+}
+.rsocial-ipt{
+    width: 627px;
+    margin: 5px 0;
+    height: 30px;
+    outline: unset;
+}
+.segundo-container-cliente, .terceiro-container-cliente{
+    display: flex;
+    
+}
+.box-cliente{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+.title-ipt{
+    font-weight:300;
+    margin: 5px 0;
+    font-size: 13px;
+    color: rgb(161, 161, 161);
+}
+.select-clientes{
+    width: 205px;
+    margin: 5px 0;
+    height: 34px;
+    outline: unset;
+}
+.cliente-ipt{
+    width: 200px;
+    margin: 5px 0;
+    height: 30px;
+    outline: unset;
+}
+.nome-rsocial{
+    font-weight:300;
+    padding: 5px 0px;
+    font-size: 13px;
+    color: rgb(161, 161, 161);
+}
+.entrada-nome-cliente{
+    height: 30px;
+    width: 500px;
+    outline: unset;
+    padding: 0 10px;
+}
+.btn-pesquisar-cliente{
+    background-color: #396ffa;
+    border: none;
+    width: 150px;
+    height: 32px;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.btn-pesquisar-cliente:hover{
+    background-color: #1a5afa;
+}
+.tbl-cliente{
+    margin: 70px  0;
+    border-collapse: collapse;
+}
+.dados-cliente th{
+    width: 200px;
+    padding: 10px 0;
+    color: rgb(58, 58, 58);
+    border:1px solid rgb(114, 114, 114);
+}
+
+.quarto-container-cliente{
+    display: flex;
+}
