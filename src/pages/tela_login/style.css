@@ -56,11 +56,13 @@ body{
 .input-login{
     width: 250px;
     height: 25px;
+    padding: 4px;
     background-color: #b6c9fa;
     border: 1px solid #4176fc;
 }
 .input-pass{
     width: 250px;
+    padding: 4px;
     height: 25px; 
     background-color: #b6c9fa; 
     border: 1px solid #4176fc;
@@ -77,6 +79,20 @@ body{
 }
 .btn-login:hover{
     background-color:#6d95fc;
+}
+.btn-cadastre-se{
+    margin: 20px 0;
+    width: 260px;
+    height: 25px; 
+    border: 1px solid #4176fc;
+    background-color: #fff;
+    color:#0a4aee;
+    cursor: pointer;
+}
+.btn-cadastre-se:hover{
+    background-color: #8FAEFD;
+    border: none;
+    color: #fff;
 }
 .all-rights{
     font-size: 11px;

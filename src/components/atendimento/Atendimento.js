@@ -8,10 +8,12 @@ const Atendimento = () => {
     const formNovoAtendimento = () => {
         const formAtendimento = document.querySelector(".cadastrar-atendimento");
         const pesquisarAtendimento = document.querySelector(".sessao-pesquisar-atendimento");
+        const sessaoTbl = document.querySelector(".sessao-tbl-atendimento");
 
         if(form === false){
             formAtendimento.style.cssText = "display: block;"
             pesquisarAtendimento.style.cssText = "display: none;"
+            sessaoTbl.style.cssText = "display:none;"
 
             SetForm(true)
             SetBtnVoltar("Voltar")
@@ -68,7 +70,7 @@ const Atendimento = () => {
                         <button className="btn-pesquisar-atendimento">Pesquisar</button>
                     </div>
                 </section>
-                <section>
+                <section className="sessao-tbl-atendimento">
                     <table className="tbl-atendimento">
                         <thead>
                             <tr className="dados-atendimento">

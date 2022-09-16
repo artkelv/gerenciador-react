@@ -5,6 +5,7 @@ import Clientes from "../../components/clientes/Clientes";
 import Relatórios from "../../components/relatorios/Relatorios";
 import Softwares from "../../components/softwares/Softwares";
 import Usuarios from "../../components/usuarios/Usuarios"
+import { useNavigate } from 'react-router-dom';
 
 import { useState } from "react";
 
@@ -14,7 +15,7 @@ import "../tela_home/style.css";
 const TelaHome = () => {
 
   const [tela, setTela] = useState("tela-home");
-
+  const navigate = useNavigate();
 
 const renderizaAtendimento = () => {
     setTela("atendimento")
@@ -64,9 +65,8 @@ const renderizaTela = () => {
       <nav className="menu-nav">
         <ul className="list">
           <li className="item">
-            <a href="#" className="ancor">
-              <ion-icon name="home"></ion-icon>
-              <span className="title">Inicio</span>
+            <a href="#" className="ancor menu-home">
+              <span className="title-menu-home">Menu</span>
             </a>
           </li>
           <li className="item" onClick={() => renderizaAtendimento()}>
@@ -107,7 +107,7 @@ const renderizaTela = () => {
           </li>
         </ul>
         <ul>
-          <li className="bottom" >
+          <li className="bottom" onClick={() => {navigate("/")}}>
             <a href="" className="over">
               <ion-icon name="power"></ion-icon>
               <span className="title">sair</span>
