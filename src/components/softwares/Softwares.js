@@ -57,10 +57,9 @@ const Softwares = () => {
                         <table className="tbl-software">
                             <thead>
                                 <tr className="dados-software">
-                                    <th>Código</th>
                                     <th>Nome</th>
-                                    <th>Cargo</th>
-                                    <th>Ações</th>
+                                    <th>Versão</th>
+                                    <th>Observações</th>
                                 </tr>
                             </thead>
                         </table>

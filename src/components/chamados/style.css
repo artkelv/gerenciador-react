@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inria Serif', serif;
+    font-family: 'Roboto', sans-serif;
+}
+#sessao-chamados{
+    width: 900px;
+    height: 100vh;
+    margin: 0 10px;
+    padding-left: 60px;
+    overflow-x: scroll;
+}
+.titulo-chamados{
+    display: flex;
+    justify-content: center;
+}
+.subtitulo-chamados{
+    display: inline-block;
+    border-bottom: 2px solid #4176fc;
+    padding: 15px 0;
+    color: rgb(95, 95, 95);
+}
+.btn-novo-chamado{
+    background-color: #4176fc;
+    border: none;
+    width: 150px;
+    height: 30px;
+    margin: 25px 0 20px;
+    color: #fff;
+    cursor: pointer;
+}
+.btn-novo-chamado:hover{
+    background-color: #1a5afa;
+}
+.sessao-pesquisar-chamados{
+    display: flex;
+    flex-direction: column;
+}
+.cadastrar-chamados{
+    display: none;
+}
+.primeiro-container-chamados, .terceiro-container-chamados{
+    display: flex;
+}
+.quarto-container-chamados{
+    display: flex;
+    align-items: flex-end;
+}
+.btn-cadastrar-chamado{
+    background-color: #09c082;
+    color: #fff;
+    border: none;
+    width: 205px;
+    height: 30px;
+    outline: unset;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.btn-cadastrar-chamado:hover{
+    background-color: #07a570;
+}
+
+.lbl-chamados{
+    font-weight:300;
+    margin: 5px 0;
+    font-size: 13px;
+    color: rgb(161, 161, 161);
+}
+.ipt-chamados-info{
+    width: 150px;
+    margin: 5px 0;
+    height: 30px;
+    outline: unset;
+    padding: 0 5px;
+}
+.ipt-chamados-cliente{
+    width: 500px;
+    margin: 5px 0;
+    height: 30px;
+    outline: unset;
+    padding: 0 5px;
+}
+.slct-chamados{
+    width: 165px;
+    margin: 5px 0;
+    height: 30px;
+    outline: unset;
+    padding: 0 5px;
+}
+.buscar-chamados{
+    height: 30px;
+    width: 500px;
+    outline: unset;
+    padding: 0 10px;
+}
+.btn-pesquisar-chamado{
+    background-color: #396ffa;
+    border: none;
+    width: 150px;
+    height: 32px;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.btn-pesquisar-chamado:hover{
+    background-color: #1a5afa;
+}
+.container-chamados{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+.txtarea-chamados{
+    width: 470px;
+    padding: 5px;
+    outline: unset;
+}
+.tbl-chamados{
+    margin: 70px  0;
+    border-collapse: collapse;
+}
+.dados-chamados th{
+    width: 200px;
+    padding: 10px 0;
+    color: rgb(58, 58, 58);
+    border:1px solid rgb(114, 114, 114);
+}
