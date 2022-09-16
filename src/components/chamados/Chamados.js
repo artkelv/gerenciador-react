@@ -1,9 +1,14 @@
-import { useState } from "react";
 import "../chamados/style.css";
+
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 
 const Chamados = () => {
     const [form, SetForm] = useState(false);
     const [btnVoltar, SetBtnVoltar] = useState("Novo Chamado");
+
+    const generateId = uuidv4();
 
     const mostrarFormChamados = () => {
         const formChamados = document.querySelector(".cadastrar-chamados");
@@ -50,10 +55,14 @@ const Chamados = () => {
                         <input className="ipt-chamados-info" type="text" placeholder="Informe um titulo"/>
                     </div>
                 </div>
-                <div>
+                <div className="segundo-container-chamados">
                     <div className="container-chamados">
                         <label className="lbl-chamados">Data do chamado</label>
                         <input className="ipt-chamados-info" type="date" />
+                    </div>
+                    <div className="container-id-chamados">
+                        <label className="lbl-id-chamados">ID do chamado:</label>
+                        <span className="id-gerado-chamados">{generateId}</span>
                     </div>
                 </div>
                 <div className="terceiro-container-chamados">
