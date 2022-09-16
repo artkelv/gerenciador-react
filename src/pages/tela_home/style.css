@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: #4176fc;
-    width: 20vw;
+    width: 16vw;
     height: 100vh;
     box-shadow: 3px 0px 0px #54639c;
 }
@@ -31,6 +31,13 @@ ion-icon {
     text-decoration: none;
     display: flex;
     padding: 20px 10px;
+}
+.menu-home{
+    background-color: #54639c;
+    cursor: auto;
+}
+.title-menu-home{
+    margin-left: 15px;
 }
 .title{
     font-size: 15px;

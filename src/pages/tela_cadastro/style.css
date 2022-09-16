@@ -23,16 +23,16 @@ body{
     align-items: center;
     width: 100%;
 }
-.criar-conta h1{
+.titulo-cadastro{
     color: #fff;
     margin: 20px;
     letter-spacing: 2px;
 }
-.criar-conta form{
+.form-cadastro{
     display: flex;
     flex-direction: column;
 }
-form input{
+.inputs-cadastro{
     width: 250px;
     padding: 5px;
     margin: 5px 0;
@@ -50,8 +50,27 @@ form input{
     background-color: transparent;
     cursor: pointer;
     border-radius: 3px;
-    transition: 0.5s;
 }
 .btn-tela-cadastro:hover{
     background-color: rgb(47, 115, 173);
+}
+.obg-cadastro{
+    color: white;
+    margin: 15px 0;
+    font-size: 12px;
+}
+.btn-fazer-login{
+    background-color: rgb(42, 96, 214);
+    padding: 5px;
+    width: 100px;
+    border-radius: 3px;
+    color: #fff;
+    border: none;
+    margin: 10px 0;
+    font-size: 13px;
+    cursor: pointer;
+}
+.btn-fazer-login:hover{
+    background-color: #fff;
+    color: rgb(42, 96, 214);
 }

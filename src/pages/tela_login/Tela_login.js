@@ -28,6 +28,7 @@ const TelaLogin = () => {
             
                     <button className="btn-login" onClick={() => navigate("/home")}>Entrar</button>
                 </form>
+                <button className="btn-cadastre-se" onClick={() => {navigate("/cadastro")}}>Cadastre-se</button>
                 <p className="all-rights">© Copyright 2022. All Rights Reserved.</p>
             </main>
         </div>
