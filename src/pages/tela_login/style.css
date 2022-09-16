@@ -46,18 +46,24 @@ body{
 .label-email{
     color: rgb(161, 157, 157);
     margin: 5px 0;
+    font-size: 13px;
 }
 .label-pass{
     color: rgb(161, 157, 157);
     margin: 5px 0;
+    font-size: 13px;
 }
 .input-login{
     width: 250px;
     height: 25px;
+    background-color: #b6c9fa;
+    border: 1px solid #4176fc;
 }
 .input-pass{
     width: 250px;
-    height: 25px;  
+    height: 25px; 
+    background-color: #b6c9fa; 
+    border: 1px solid #4176fc;
 }
 .btn-login{
     margin: 20px 0;
