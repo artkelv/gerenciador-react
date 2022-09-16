@@ -1,0 +1,132 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inria Serif', serif;
+    font-family: 'Roboto', sans-serif;
+}
+#sessao-atendimento{
+    width: 900px;
+    height: 100vh;
+    margin: 0 10px;
+    padding-left: 60px;
+    overflow-x: scroll;
+}
+.titulo-atendimento{
+    display: flex;
+    justify-content: center;
+}
+.subtitulo-atendimento{
+    display: inline-block;
+    border-bottom: 2px solid #4176fc;
+    padding: 15px 0;
+    color: rgb(95, 95, 95);
+}
+.btn-novo-atendimento{
+    background-color: #4176fc;
+    border: none;
+    width: 150px;
+    height: 30px;
+    margin: 25px 0 20px;
+    color: #fff;
+    cursor: pointer;
+}
+.btn-novo-atendimento:hover{
+    background-color: #1a5afa;
+}
+.cadastrar-atendimento{
+    display: none;
+}
+.primeiro-container-atendimento, .segundo-container-atendimento{
+    display: flex;
+}
+.segundo-container-atendimento{
+    margin: 15px 0;
+}
+.atendimento-data, .atendimento-cliente, .atendimento-assunto, .atendimento-tipo, .atendimento-registro{
+    display: flex;
+    flex-direction: column;
+}
+.atendimento-data{
+    margin-left: 15px;
+}
+.atendimento-tipo{
+    margin:0 15px; 
+}
+.lbl-atendimento{
+    font-weight:300;
+    margin: 5px 0;
+    font-size: 13px;
+    color: rgb(161, 161, 161);
+}
+.ipt-pesquisar-atendimento{
+    height: 30px;
+    width: 500px;
+    outline: unset;
+    padding: 0 10px;
+}
+.btn-pesquisar-atendimento{
+    background-color: #396ffa;
+    border: none;
+    width: 150px;
+    height: 32px;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.btn-pesquisar-atendimento:hover{
+    background-color: #1a5afa;
+}
+.ipt-cliente{
+    width: 500px;
+    margin: 5px 0;
+    height: 30px;
+    outline: unset;
+    padding: 0 5px;
+}
+.ipt-data{
+    width: 150px;
+    margin: 5px 0;
+    height: 30px;
+    outline: unset;
+    padding: 0 5px;
+}
+.ipt-assunto{
+    width: 242px;
+    height: 30px;
+    padding: 0 5px;
+    outline: unset;
+}
+.ipt-atendimento{
+    width: 242px;
+    height: 34px;
+    outline: unset;
+}
+.ipt-registro{
+    width: 503px;
+    padding: 5px;
+    outline: unset;
+}
+.btn-cadastrar-atendimento{
+    background-color: #09c082;
+    color: #fff;
+    border: none;
+    margin: 20px 0;
+    width: 205px;
+    height: 30px;
+    outline: unset;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.btn-cadastrar-atendimento:hover{
+    background-color: #07a570;
+}
+.tbl-atendimento{
+    margin: 70px  0;
+    border-collapse: collapse;
+}
+.dados-atendimento th{
+    width: 200px;
+    padding: 10px 0;
+    color: rgb(58, 58, 58);
+    border:1px solid rgb(114, 114, 114);
+}

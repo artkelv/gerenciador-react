@@ -3,7 +3,7 @@ import "../usuarios/style.css";
 
 const Usuarios = () => {
     const [form, setForm] = useState(false);
-    const [btnTexto, SetBtnTexto] = useState("New");
+    const [btnTexto, SetBtnTexto] = useState("Novo Usuário");
 
     const mostrarFormParaAddUsuario = () => {
         
@@ -18,7 +18,7 @@ const Usuarios = () => {
             formUser.style.cssText = "display:block;"
         } else if(form === true){
             setForm(false)
-            SetBtnTexto("New")
+            SetBtnTexto("Novo Usuário")
 
             buscarUsuario.style.cssText = "display:block;"
             formUser.style.cssText = "display:none;"
@@ -135,10 +135,10 @@ const Usuarios = () => {
                     <table className="tbl-usuarios">
                         <thead>
                             <tr className="dados-usuarios">
-                                <th>Código</th>
                                 <th>Nome</th>
+                                <th>CPF</th>
+                                <th>RG</th>
                                 <th>Cargo</th>
-                                <th>Ações</th>
                             </tr>
                         </thead>
                     </table>

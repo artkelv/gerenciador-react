@@ -4,7 +4,7 @@ import "../../components/clientes/style.css"
 const Clientes = () => {
 
     const [form, setForm] = useState(false);
-    const [btnVoltar, setBtnVoltar] = useState("New")
+    const [btnVoltar, setBtnVoltar] = useState("Novo Cliente")
 
     const MostrarFormAddNovaEmpresa = () => {
         const mostrarFormParaAddEmpresa = document.querySelector(".cadastrar-empresa");
@@ -20,7 +20,7 @@ const Clientes = () => {
             mostrarFormParaAddEmpresa.style.cssText = "display:none;"
             retiraSessaoPesquisar.style.cssText = "display:block;"
 
-            setBtnVoltar("New")
+            setBtnVoltar("Novo Cliente")
             setForm(false)
         }
     }
@@ -117,10 +117,11 @@ const Clientes = () => {
                     <table className="tbl-cliente">
                         <thead>
                             <tr className="dados-cliente">
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Cargo</th>
-                                <th>Ações</th>
+                                <th>Razão Social</th>
+                                <th>Nome Fantasia</th>
+                                <th>Proprietário</th>
+                                <th>Cidade</th>
+                                <th>E-mail</th>
                             </tr>
                         </thead>
                     </table>
