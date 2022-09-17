@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inria Serif', serif;
+    font-family: 'Roboto', sans-serif;
+}
+.sessao-relatorios{
+    width: 900px;
+    height: 100vh;
+    margin: 0 10px;
+    padding-left: 60px;
+    overflow-x: scroll;
+}
