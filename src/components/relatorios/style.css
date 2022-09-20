@@ -4,10 +4,82 @@
     font-family: 'Inria Serif', serif;
     font-family: 'Roboto', sans-serif;
 }
-.sessao-relatorios{
-    width: 900px;
+#sessao-relatorios{
+    width: 950px;
     height: 100vh;
     margin: 0 10px;
     padding-left: 60px;
     overflow-x: scroll;
+}
+.relatorios-chamados{
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    padding: 15px 0;
+    border-bottom: 1px solid #4176fc;
+}
+.titulo-relatorios{
+    display: flex;
+}
+.subtitulo-relatorios{
+    display: inline-block;
+    border-bottom: 2px solid #4176fc;
+    padding: 15px 0;
+    color: rgb(95, 95, 95);
+}
+.settings-img{
+    width: 50px;
+    padding: 0 10px;
+}
+.box-relatorios{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 3px 0px 2px 0px #396ffa inset;
+    width: 400px;
+    padding: 20px 0;
+    margin: 20px 0;
+    border-radius: 3px;
+}
+.titulo-rlt-chamados{
+    color: #396ffa;
+}
+.contador-chamados{
+    color: #4176fc;
+    border: 1px solid #396ffa;
+    padding: 10px;
+    border-radius: 5px;
+}
+.relatorios-csu{
+    display: flex;
+    margin-top: 25px;
+}
+.content-csu{
+   width: 300px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.relatorios-title-csu{
+    color: rgb(95, 95, 95);
+    margin: 15px 0;
+}
+.csu-encontrados{
+    width: 150px;
+    height: 150px;
+    background-color: #396ffa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    box-shadow: 0px 0px 15px #4176fc;
+}
+.quantidade-csu{
+    background-color: transparent;
+    display: block;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 50px;
+    border-radius: 50px;
 }

@@ -1,10 +1,12 @@
 import React from 'react'
+import Menu from '../../components/menu/Menu';
 import Atendimento from "../../components/atendimento/Atendimento"
 import Chamados from "../../components/chamados/Chamados";
 import Clientes from "../../components/clientes/Clientes";
 import Relatórios from "../../components/relatorios/Relatorios";
 import Softwares from "../../components/softwares/Softwares";
 import Usuarios from "../../components/usuarios/Usuarios"
+
 import { useNavigate } from 'react-router-dom';
 
 import { useState } from "react";
@@ -14,49 +16,57 @@ import "../tela_home/style.css";
 
 const TelaHome = () => {
 
-  const [tela, setTela] = useState("tela-home");
-  const navigate = useNavigate();
+const [tela, setTela] = useState("menu");
+console.log("tela atualmente",tela)
+const navigate = useNavigate();
 
+const renderizaMenu = () => {
+  setTela("menu")
+}  
 const renderizaAtendimento = () => {
-    setTela("atendimento")
+  setTela("atendimento")
 } 
 const renderizaChamados = () => {
-    setTela("chamados")
+  setTela("chamados")
 } 
 const renderizaClientes = () => {
-    setTela("clientes")
+  setTela("clientes")
 } 
 const renderizaSoftwares = () => {
-    setTela("softwares")
+  setTela("softwares")
 }
 const renderizaUsuarios = () => {
-    setTela("usuarios")
+  setTela("usuarios")
 } 
 const renderizaRelatorios = () => {
-    setTela("relatorios")
+  setTela("relatorios")
 } 
 
 
 const renderizaTela = () => {
-    switch(tela){
+    switch(tela){ 
         case "atendimento":
-            return <Atendimento/>
+          return <Atendimento/>
         break  
         case "chamados":
-            return <Chamados/>  
+          return <Chamados/>  
         break
         case "clientes":
-            return <Clientes/>  
+          return <Clientes/>  
         break
         case "softwares":
-            return <Softwares/>
+          return <Softwares/>
         break
         case "usuarios": 
-            return <Usuarios/>
+          return <Usuarios/>
         break 
         case "relatorios": 
-            return <Relatórios/>
+          return <Relatórios/>
         break
+        case "menu":
+          return <Menu/>
+        break  
+        default: return <Menu/>
     }
 }
   
@@ -64,7 +74,7 @@ const renderizaTela = () => {
     <div id="main-content">
       <nav className="menu-nav">
         <ul className="list">
-          <li className="item">
+          <li className="item" onClick={() => renderizaMenu()}>
             <a href="#" className="ancor menu-home">
               <span className="title-menu-home">Menu</span>
             </a>
