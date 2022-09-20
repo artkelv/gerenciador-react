@@ -6,6 +6,7 @@
 }
 #main-content{
     display: flex;
+    background-color: whitesmoke;
 }
 .menu-nav{
     display: flex;
