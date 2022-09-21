@@ -1,6 +1,6 @@
 import "./style.css";
 
-import menuBackground from "../../assets/back_menu.jpg";
+import newmenuBack from "../../assets/new_back_menu.jpg";
 
 import Chamados from "../chamados/Chamados";
 import Atendimento from "../atendimento/Atendimento";
@@ -43,7 +43,7 @@ const Menu = () => {
     return(
         <div id="sessao-menu">
             <section className="subsessao-menu">
-                <img className="background-menu" src={menuBackground} alt="Menu de tarefas" />
+                <img className="background-menu" src={newmenuBack} alt="Menu de tarefas" />
                 <h2 className="titulo-menu">Bem-vinda ao Gerenciador de Chamados</h2>
                 <p className="subtitle-menu">Crie um novo chamado, adicione usuários, abra atendimentos e veja seus relatórios, tudo em um só lugar.</p>
             

@@ -17,7 +17,6 @@ import "../tela_home/style.css";
 const TelaHome = () => {
 
 const [tela, setTela] = useState("menu");
-console.log("tela atualmente",tela)
 const navigate = useNavigate();
 
 const renderizaMenu = () => {

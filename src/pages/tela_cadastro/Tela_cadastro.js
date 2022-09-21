@@ -1,7 +1,7 @@
 import "../tela_cadastro/style.css";
 import { useNavigate } from "react-router-dom";
 
-import backgroundSignUp from "../../assets/background_signup.jpg";
+import backgroundSignUp from "../../assets/new_back_signup.jpg";
 
 const TelaCadastro = () => {
     const navigate = useNavigate();
