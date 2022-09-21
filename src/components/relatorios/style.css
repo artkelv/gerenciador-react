@@ -5,11 +5,13 @@
     font-family: 'Roboto', sans-serif;
 }
 #sessao-relatorios{
-    width: 950px;
+    width: 85vw;
     height: 100vh;
     margin: 0 10px;
-    padding-left: 60px;
+    /* padding-left: 10px; */
     overflow-x: scroll;
+    display: flex;
+    justify-content: center;
 }
 .relatorios-chamados{
     margin: 50px 0;
@@ -100,4 +102,5 @@
 }
 .testechart{
     width: 900px;
+    height: 400px;
 }
