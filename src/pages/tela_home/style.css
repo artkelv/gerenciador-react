@@ -35,7 +35,7 @@ ion-icon {
 }
 .menu-home{
     background-color: #54639c;
-    cursor: auto;
+    cursor: pointer;
 }
 .title-menu-home{
     margin-left: 15px;
