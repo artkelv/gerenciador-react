@@ -24,14 +24,14 @@ import { Bar } from 'react-chartjs-2';
     },
   };
   
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const labels = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'];
   
   export const data = {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
-        data: [20,40,60,80,100,120,140],
+        label: 'Chamados',
+        data: [20,100,60,80,40,140,30],
         backgroundColor: '#1a5afa',
       }
     ],

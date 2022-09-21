@@ -64,27 +64,30 @@
     border-radius: 5px;
 }
 .relatorios-csu{
+    width: 900px;
     display: flex;
-    margin-top: 25px;
+    margin: 25px 0;
 }
 .content-csu{
    width: 300px;
    display: flex;
    flex-direction: column;
    align-items: center;
+   margin: 1px;
+   
 }
 .relatorios-title-csu{
     color: rgb(95, 95, 95);
     margin: 15px 0;
 }
 .csu-encontrados{
-    width: 150px;
+    width: 250px;
     height: 150px;
     background-color: #396ffa;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 100px;
+    border-radius: 5px;
     box-shadow: 0px 0px 15px #4176fc;
 }
 .quantidade-csu{
@@ -93,7 +96,7 @@
     color: #fff;
     border: 1px solid #fff;
     padding: 50px;
-    border-radius: 50px;
+    border-radius: 5px;
 }
 .testechart{
     width: 900px;
