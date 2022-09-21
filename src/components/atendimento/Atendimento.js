@@ -20,6 +20,7 @@ const Atendimento = () => {
         }else if(form === true){
             formAtendimento.style.cssText = "display: none;"
             pesquisarAtendimento.style.cssText = "display: block;"
+            sessaoTbl.style.cssText = "display:block;"
 
             SetForm(false)
             SetBtnVoltar("Novo Atendimento")
