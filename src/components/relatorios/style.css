@@ -5,10 +5,9 @@
     font-family: 'Roboto', sans-serif;
 }
 #sessao-relatorios{
-    width: 85vw;
+    width: 83vw;
     height: 100vh;
-    margin: 0 10px;
-    /* padding-left: 10px; */
+    margin: 0 5px;
     overflow-x: scroll;
     display: flex;
     justify-content: center;

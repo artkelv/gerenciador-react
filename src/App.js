@@ -1,10 +1,11 @@
 import RouterProjeto from "../src/routers/Router";
+import GlobalState from "./global/GlobalState";
 
 function App() {
   return (
-    <div className="App">
+    <GlobalState>
       <RouterProjeto/>
-    </div>
+    </GlobalState>
   );
 }
 

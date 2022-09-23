@@ -1,45 +1,12 @@
 import "./style.css";
-
 import newmenuBack from "../../assets/new_back_menu.jpg";
-
-import Chamados from "../chamados/Chamados";
-import Atendimento from "../atendimento/Atendimento";
-
-import { useState } from "react";
-import Usuarios from "../usuarios/Usuarios";
+import { useContext } from "react";
+import { GlobalContext } from "../../global/GlobalContext";
 
 const Menu = () => {
-    const [tela, SetTela] = useState("menu");
 
-    const apagarSubSessao = () => {
-        const retiraMenu = document.querySelector(".subsessao-menu");
-        retiraMenu.style.cssText = "display:none;"   
-    }
-    const renderizaNovoChamado = () => {
-        SetTela("chamados")
-        apagarSubSessao()
-    }
-    const renderizaNovoAtendimento = () => {
-        SetTela("atendimentos")
-        apagarSubSessao()
-    }
-    const renderizaNovoUsuario = () => {
-        SetTela("usuarios")
-        apagarSubSessao()
-    }
-    const renderizaTelaSelecionada = () => {
-        switch(tela){
-            case "chamados":
-                return <Chamados/>
-            break
-            case "atendimentos":
-                return <Atendimento/>  
-            break
-            case "usuarios":
-                return <Usuarios/>     
-            break  
-        }
-    }
+    const {tela, setTela} = useContext(GlobalContext);
+
     return(
         <div id="sessao-menu">
             <section className="subsessao-menu">
@@ -49,20 +16,20 @@ const Menu = () => {
             
                 <section className="container-menu">
                     <div className="box-menu">
-                        <button className="btn-menu" onClick={() => renderizaNovoChamado()}><ion-icon className="icon-menu" name="add"></ion-icon></button>
+                        <button className="btn-menu" onClick={() => {setTela("chamados")}}><ion-icon className="icon-menu" name="add"></ion-icon></button>
                         <span className="titulo-btn-menu">Novo Chamado</span>
                     </div>
                     <div className="box-menu">
-                        <button className="btn-menu" onClick={() => renderizaNovoAtendimento()}><ion-icon name="people"></ion-icon></button>
+                        <button className="btn-menu" onClick={() => {setTela("atendimentos")}}><ion-icon name="people"></ion-icon></button>
                         <span className="titulo-btn-menu">Criar Atendimento</span>
                     </div>
                     <div className="box-menu">
-                        <button className="btn-menu" onClick={() => renderizaNovoUsuario()}><ion-icon name="person-add"></ion-icon></button>
+                        <button className="btn-menu" onClick={() => {setTela("usuarios")}}><ion-icon name="person-add"></ion-icon></button>
                         <span className="titulo-btn-menu">Cadastrar Usuário</span>
                     </div>
                 </section>
             </section>
-            {renderizaTelaSelecionada()}
+            {/* {hookUseRenderiza} */}
         </div>
     )
 }
