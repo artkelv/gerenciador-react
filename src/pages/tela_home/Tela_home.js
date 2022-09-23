@@ -6,6 +6,7 @@ import useRenderizaTela from '../../hooks/useRenderizaTela';
 import "../tela_home/style.css";
 
 const TelaHome = () => {
+  
   const {tela, setTela} = useContext(GlobalContext)
   const hookUse = useRenderizaTela(tela)
   
