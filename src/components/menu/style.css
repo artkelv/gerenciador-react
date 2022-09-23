@@ -7,12 +7,12 @@
 #sessao-menu{
     width:  83vw;
     display: flex;
+    margin: 0 5px;
     flex-direction: column;
     justify-content: center;
     background-color: #fff;
 }
 .subsessao-menu{
-    margin: 0 3px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
