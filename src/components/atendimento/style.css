@@ -5,7 +5,8 @@
     font-family: 'Roboto', sans-serif;
 }
 #sessao-atendimento{
-    width: 900px;
+    width: 85vw;
+    /* width: 900px; */
     height: 100vh;
     margin: 0 10px;
     padding-left: 60px;
@@ -120,6 +121,9 @@
 .btn-cadastrar-atendimento:hover{
     background-color: #07a570;
 }
+.sessao-tbl-atendimento{
+    margin-right: 50px;
+}
 .tbl-atendimento{
     margin: 70px  0;
     border-collapse: collapse;
@@ -129,4 +133,10 @@
     padding: 10px 0;
     color: rgb(58, 58, 58);
     border:1px solid rgb(114, 114, 114);
+}
+.atendimentos-cadastrados td{
+    border:1px solid rgb(114, 114, 114);
+    font-size: 13px;
+    padding: 10px 5px;
+    text-align: center;
 }

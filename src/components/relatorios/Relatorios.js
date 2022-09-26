@@ -7,6 +7,8 @@ import settings4 from "../../assets/new_settings_4.png";
 
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { useContext } from "react";
+import { GlobalContext } from "../../global/GlobalContext";
   
   ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip,Legend);
   
@@ -39,6 +41,7 @@ import { Bar } from 'react-chartjs-2';
   
 
 const Relatórios = () => {
+
     return(
         <div id="sessao-relatorios">
             <div>
