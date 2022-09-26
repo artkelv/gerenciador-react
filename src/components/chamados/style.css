@@ -5,7 +5,8 @@
     font-family: 'Roboto', sans-serif;
 }
 #sessao-chamados{
-    width: 900px;
+    width: 85vw;
+    /* width: 900px; */
     height: 100vh;
     margin: 0 10px;
     padding-left: 60px;
@@ -60,7 +61,6 @@
 .btn-cadastrar-chamado:hover{
     background-color: #07a570;
 }
-
 .lbl-chamados{
     font-weight:300;
     margin: 5px 0;
@@ -117,6 +117,7 @@
     outline: unset;
 }
 .tbl-chamados{
+    width: 75vw;
     margin: 70px  0;
     border-collapse: collapse;
 }
@@ -146,4 +147,10 @@
 .id-gerado-chamados{
     margin: 0 5px;
     font-size: 13px;
+}
+.chamados-cadastrados td{
+    border:1px solid rgb(114, 114, 114);
+    font-size: 13px;
+    padding: 10px 5px;
+    text-align: center;
 }
