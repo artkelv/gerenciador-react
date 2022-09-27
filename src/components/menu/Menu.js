@@ -29,7 +29,6 @@ const Menu = () => {
                     </div>
                 </section>
             </section>
-            {/* {hookUseRenderiza} */}
         </div>
     )
 }
