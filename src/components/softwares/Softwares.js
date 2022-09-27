@@ -1,9 +1,15 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { useFormik } from "formik";
+import swal from "sweetalert2";
+
 import "../softwares/style.css"
+import { GlobalContext } from "../../global/GlobalContext";
 
 const Softwares = () => {
     const [form, SetForm] = useState(false);
-    const [nomeBtn, SetNomeBtn] = useState("Novo Software")
+    const [nomeBtn, SetNomeBtn] = useState("Novo Software");
+
+    const {softwares, setSoftwares} = useContext(GlobalContext);
 
     const mostrarFormSoftware = () => {
         const formSoftware = document.querySelector(".cadastrar-software");
@@ -23,30 +29,74 @@ const Softwares = () => {
             SetNomeBtn("Novo Software")
         }
     }
+    const formik = useFormik({
+        initialValues: {
+            nome:"",
+            versao: "",
+            observacao: ""
+        },
+        onSubmit: (values) => {
+            swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Software Registrado!',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            const dadosSoftwares = {
+                nomeSF: values.nome,
+                versaoSF: values.versao,
+                observacaoSF: values.observacao
+            }
+            setSoftwares(() => [...softwares, dadosSoftwares])
+        }
+    })
     return(
         <div id="sessao-softwares">
             <section>
                 <h3 className="titulo-software"><span className="subtitulo-software">Softwares</span></h3>
                 <button className="btn-novo-software" onClick={() => {mostrarFormSoftware()}}>{nomeBtn}</button>
-                <section className="cadastrar-software">
+                <form className="cadastrar-software" onSubmit={formik.handleSubmit}>
                     <div className="primeiro-container-software">
                         <div className="box-name-software">
                             <label className="lbl-software">Nome</label>
-                            <input className="ipt-software" type="text" placeholder="Informe o nome do Software"/>
+                            <input 
+                                className="ipt-software" 
+                                type="text"
+                                name="nome"
+                                value={formik.values.nome}
+                                onChange={formik.handleChange} 
+                                placeholder="Informe o nome do Software"
+                            />
                         </div>
                         <div className="box-obs-software">
                             <label className="lbl-software">Observações</label>
-                            <textarea className="txt-software" cols="80" rows="10" placeholder="Informe suas observações aqui"></textarea>
+                            <textarea 
+                                className="txt-software" 
+                                cols="80" 
+                                rows="10"
+                                name="observacao"
+                                value={formik.values.observacao}
+                                onChange={formik.handleChange} 
+                                placeholder="Informe as observações aqui"
+                            ></textarea>
                         </div>
                     </div>
                     <div>
                         <div className="box-versao-software">
                             <label className="lbl-software">Versão</label>
-                            <input className="ipt-versao" type="text" placeholder="Informe a Versão do software"/>
+                            <input
+                                className="ipt-versao"
+                                type="text"
+                                name="versao"
+                                value={formik.values.versao}
+                                onChange={formik.handleChange} 
+                                placeholder="Informe a Versão do software"
+                            />
                         </div>
                         <button className="btn-cadastrar-software">Cadastrar</button>
                     </div>
-                </section>
+                </form>
                 <section className="sessao-buscar-software">
                     <section className="achar-software">
                         <p className="nome-software">Nome</p>
@@ -62,6 +112,17 @@ const Softwares = () => {
                                     <th>Observações</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                            {softwares.map((item, index) => {
+                                return(
+                                    <tr key={index} className="softwares-cadastrados">
+                                        <td>{item.nomeSF}</td>
+                                        <td>{item.versaoSF}</td>
+                                        <td>{item.observacaoSF}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
                         </table>
                     </section>
                 </section>
