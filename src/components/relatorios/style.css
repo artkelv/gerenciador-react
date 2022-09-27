@@ -7,7 +7,6 @@
 #sessao-relatorios{
     width: 83vw;
     height: 100vh;
-    margin: 0 5px;
     overflow-x: scroll;
     display: flex;
     justify-content: center;
@@ -39,6 +38,10 @@
     border-bottom: 2px solid #4176fc;
     padding: 15px 0;
     color: rgb(95, 95, 95);
+}
+.testechart{
+    width: 900px;
+    height: 400px;
 }
 .settings-img{
     width: 50px;
@@ -74,8 +77,6 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   margin: 1px;
-   
 }
 .relatorios-title-csu{
     color: rgb(95, 95, 95);
@@ -98,8 +99,4 @@
     border: 1px solid #fff;
     padding: 50px;
     border-radius: 5px;
-}
-.testechart{
-    width: 900px;
-    height: 400px;
 }
