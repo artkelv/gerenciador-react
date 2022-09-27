@@ -126,7 +126,12 @@
     color: rgb(58, 58, 58);
     border:1px solid rgb(114, 114, 114);
 }
-
 .quarto-container-cliente{
     display: flex;
+}
+.clientes-cadastrados td{
+    border:1px solid rgb(114, 114, 114);
+    font-size: 13px;
+    padding: 10px 5px;
+    text-align: center;
 }

@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useFormik } from "formik";
+import { useContext, useState } from "react";
+
+import swal from "sweetalert2";
+
 import "../../components/clientes/style.css"
+import { GlobalContext } from "../../global/GlobalContext";
 
 const Clientes = () => {
 
     const [form, setForm] = useState(false);
     const [btnVoltar, setBtnVoltar] = useState("Novo Cliente")
+
+    const {clientes, setClientes} = useContext(GlobalContext);
 
     const MostrarFormAddNovaEmpresa = () => {
         const mostrarFormParaAddEmpresa = document.querySelector(".cadastrar-empresa");
@@ -24,38 +31,115 @@ const Clientes = () => {
             setForm(false)
         }
     }
+    const formik = useFormik({
+        initialValues: {
+            rsocial:"",
+            nomeFantasia:"",
+            cidade:"",
+            telCelular:"",
+            email:"",
+            estado:"",
+            proprietario:"",
+            cnpj:"",
+            endereco:"",
+            telComercial:""
+        },
+        onSubmit:(values, {resetForm}) => {
+            swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Cliente Cadastrado!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            const cadastroClientes = {
+                rsocialCL: values.rsocial,
+                nomeFantasiaCL: values.nomeFantasia,
+                cidadeCL: values.cidade,
+                telCelularCL: values.telCelular,
+                emailCL: values.email,
+                estadoCL: values.estado,
+                proprietarioCL: values.proprietario,
+                cnpjCL: values.cnpj,
+                enderecoCL: values.endereco,
+                telComercialCL: values.telComercial
+            }
+            setClientes(() => [...clientes, cadastroClientes])
+            resetForm({values:""})
+        }
+    })
     return(
         <div className="sessao-cliente">
             <h3 className="titulo-cliente"><span className="subtitulo-cliente">Clientes</span></h3>
             <button className="btn-novo-cliente" onClick={() => {MostrarFormAddNovaEmpresa()}}>{btnVoltar}</button>
 
-            <section className="cadastrar-empresa">
+            <form className="cadastrar-empresa" onSubmit={formik.handleSubmit}>
                 <div className="primeiro-container-cliente">
                     <label className="rsocial-nome">Razão Social</label>
-                    <input className="rsocial-ipt" placeholder="Digite o nome de sua empresa" type="text" />
+                    <input 
+                        className="rsocial-ipt" 
+                        type="text"
+                        name="rsocial"
+                        value={formik.values.rsocial}
+                        onChange={formik.handleChange} 
+                        placeholder="Digite o nome de sua empresa" 
+                    />
                 </div>
                 <div className="segundo-container-cliente">
                     <div className="box-cliente">
                         <label className="title-ipt">Nome fantasia</label>
-                        <input className="cliente-ipt" type="text" placeholder="Nome fantasia da empresa"/>
+                        <input 
+                            className="cliente-ipt" 
+                            type="text" 
+                            name="nomeFantasia"
+                            value={formik.values.nomeFantasia}
+                            onChange={formik.handleChange}
+                            placeholder="Nome fantasia da empresa"
+                    />
                     </div>
                     <div className="box-cliente">
                         <label className="title-ipt" >Cidade</label>
-                        <input className="cliente-ipt" type="text" placeholder="Informe a cidade"/>
+                        <input 
+                            className="cliente-ipt" 
+                            type="text"
+                            name="cidade"
+                            value={formik.values.cidade}
+                            onChange={formik.handleChange} 
+                            placeholder="Informe a cidade"
+                        />
                     </div>
                     <div className="box-cliente">
                         <label className="title-ipt" >Telefone Celular</label>
-                        <input className="cliente-ipt" type="number" placeholder="Informe o telefone celular"/>
+                        <input 
+                            className="cliente-ipt" 
+                            type="number" 
+                            name="telCelular"
+                            value={formik.values.telCelular}
+                            onChange={formik.handleChange}
+                            placeholder="Informe o telefone celular"
+                        />
                     </div>
                 </div>
                 <div className="terceiro-container-cliente">
                     <div className="box-cliente">
                         <label className="title-ipt" >E-mail</label>
-                        <input className="cliente-ipt" type="email" placeholder="Informe o e-mail"/>
+                        <input 
+                            className="cliente-ipt" 
+                            type="email"
+                            name="email"
+                            value={formik.values.email}
+                            onChange={formik.handleChange} 
+                            placeholder="Informe o e-mail"
+                        />
                     </div>
                     <div className="box-cliente">
                         <label className="title-ipt" >Estado</label>
-                                <select className="select-clientes">
+                                <select 
+                                    className="select-clientes"
+                                    name="estado"
+                                    value={formik.values.estado}
+                                    onChange={formik.handleChange}
+                                >
                                     <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
                                     <option value="AP">Amapá</option>
@@ -88,25 +172,53 @@ const Clientes = () => {
                     </div>
                     <div className="box-cliente">
                         <label className="title-ipt" >Proprietario</label>
-                        <input className="cliente-ipt" type="text" placeholder="Nome do proprietario"/>
+                        <input 
+                            className="cliente-ipt" 
+                            type="text" 
+                            name="proprietario"
+                            value={formik.values.proprietario}
+                            onChange={formik.handleChange}
+                            placeholder="Nome do proprietario"
+                        />
                     </div>
                 </div>
                 <div className="quarto-container-cliente">
                     <div className="box-cliente">
                         <label className="title-ipt" >CNPJ</label>
-                        <input className="cliente-ipt" type="number" placeholder="Informe o CNPJ da empresa"/>
+                        <input 
+                            className="cliente-ipt" 
+                            type="number"
+                            name="cnpj"
+                            value={formik.values.cnpj}
+                            onChange={formik.handleChange} 
+                            placeholder="Informe o CNPJ da empresa"
+                        />
                     </div>
                     <div className="box-cliente">
                         <label className="title-ipt" >Endereço</label>
-                        <input className="cliente-ipt" type="text" placeholder="Informe o endereço"/>
+                        <input 
+                            className="cliente-ipt" 
+                            type="text" 
+                            name="endereco"
+                            value={formik.values.endereco}
+                            onChange={formik.handleChange}
+                            placeholder="Informe o endereço"
+                        />
                     </div>
                     <div className="box-cliente">
                         <label className="title-ipt" >Telefone comercial</label>
-                        <input className="cliente-ipt" type="number"placeholder="Informe o telefone comercial" />
+                        <input 
+                            className="cliente-ipt" 
+                            type="number"
+                            name="telComercial"
+                            value={formik.values.telComercial}
+                            onChange={formik.handleChange}
+                            placeholder="Informe o telefone comercial" 
+                        />
                     </div>
                 </div>
                 <button className="efetua-cadastro">Cadastrar empresa</button>
-            </section>
+            </form>
             <section className="buscar-cliente">
                 <section className="achar-cliente">
                     <p className="nome-rsocial">Razão social</p>
@@ -124,6 +236,19 @@ const Clientes = () => {
                                 <th>E-mail</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            {clientes.map((item, index) => {
+                                return(
+                                    <tr key={index} className="clientes-cadastrados">
+                                        <td>{item.rsocialCL}</td>
+                                        <td>{item.nomeFantasiaCL}</td>
+                                        <td>{item.proprietarioCL}</td>
+                                        <td>{item.cidadeCL}</td>
+                                        <td>{item.emailCL}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
                     </table>
                 </section>
             </section>
