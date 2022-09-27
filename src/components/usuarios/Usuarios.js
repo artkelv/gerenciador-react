@@ -48,7 +48,7 @@ const Usuarios = () => {
             cidade: "",
             rg: ""
         },
-        onSubmit: (values) => {
+        onSubmit: (values, {resetForm}) => {
             swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -73,7 +73,7 @@ const Usuarios = () => {
                 rgUse: values.rg
             }
             setUsuarios(() => [...usuarios, dadosUsuarios])
-            console.log("valores",values)
+            resetForm({values: ""})
         }
     })
     return(

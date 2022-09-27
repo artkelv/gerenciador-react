@@ -41,7 +41,6 @@ const TelaCadastro = () => {
             mensagemDeAviso()
         }
     })
-    console.log("cadastro",usuariosCadastrados)
     return(
         <div id="sessao-tela-cadastro">
             <section className="background-cadastro">
