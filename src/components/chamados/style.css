@@ -153,3 +153,109 @@
     padding: 10px 5px;
     text-align: center;
 }
+.btn-edit-chamado{
+    width: 70px;
+    height: 25px;
+    background-color: #07a570;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+}
+.btn-edit-chamado:hover{
+    background-color: #028356;
+}
+
+
+
+
+.modal-edita-chamados{
+    width: 400px;
+    /* height: 400px; */
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+    background-color: #fff;
+}
+.titulo-exit{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    color: #111;
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(161, 158, 158);
+}
+.exit-modal-chamados{
+    width: 20px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.form-modal-chamados{
+    margin: 0 20px;
+}
+.box-modal-chamados{
+    display: flex;
+    flex-direction: column;
+}
+.lbl-modal-chamados{
+    font-size: 13px;
+    margin: 5px 0;
+    color: rgb(94, 94, 94);
+}
+.ipt-modal-chamados{
+    height: 30px;
+    outline: unset;
+    padding: 0 5px;
+    border-radius: 3px;
+    border: 1px solid rgb(197, 197, 197);
+}
+.container-modal{
+    display: flex;
+    justify-content: space-between;
+}
+.ipt-modal-date{
+    width: 150px;
+    height: 33px;
+    padding: 0 5px;
+    outline: unset;
+    border-radius: 3px;
+    border: 1px solid rgb(197, 197, 197);
+}
+.selct-modal-chamados{
+    width: 150px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid rgb(197, 197, 197);
+}
+.btn-submit-cancel{
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid rgb(161, 158, 158);
+    margin: 20px 0;
+    padding: 20px 0;
+}
+.btn-cancel-modal{
+    height: 30px;
+    width: 70px;
+    background-color: #f0221b;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.btn-cancel-modal:hover{
+    background-color: #eb0800;
+}
+.btn-submit-modal:hover{
+    background-color: #007e54;
+}
+.btn-submit-modal{
+    margin-left: 10px;
+    height: 30px;
+    width: 100px;
+    background-color: #07a570;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
