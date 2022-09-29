@@ -6,19 +6,17 @@ import { useFormik } from "formik";
 
 import swal from "sweetalert2";
 import { GlobalContext } from "../../global/GlobalContext";
-import useEditChamado from "../../hooks/useEditChamado";
 
 const Chamados = () => {
   const [form, SetForm] = useState(false);
   const [btnVoltar, SetBtnVoltar] = useState("Novo Chamado");
+  const [dadosParaEdit, setDadosParaEdit] = useState();
 
   const { chamados, setChamados } = useContext(GlobalContext);
 
   const generateId = uuidv4();
 
-  const editaChamado = () => {
-    alert("hello");
-  };
+  /* CÓDIGO USADO PARA MOSTRAR O FORM DE CADASTRAR CHAMADOS */
 
   const mostrarFormChamados = () => {
     const formChamados = document.querySelector(".cadastrar-chamados");
@@ -43,6 +41,9 @@ const Chamados = () => {
       SetBtnVoltar("Novo Chamado");
     }
   };
+
+  /* CÓDIGO USADO PARA CADASTRAR UM NOVO CHAMADO */
+
   const formik = useFormik({
     initialValues: {
       cliente: "",
@@ -73,6 +74,66 @@ const Chamados = () => {
       resetForm({ values: "" });
     },
   });
+
+  /* CONTEÚDO MODAL ABAIXO */
+
+  const pegaDadosDoChamado = (dadosDoChamado) => {
+    setDadosParaEdit(dadosDoChamado)
+
+    return dadosParaEdit
+  }
+
+  const abreModal = (dados) => {
+    const modalA = document.querySelector(".modal-edita-chamados");
+    modalA.style.cssText = "display:block;"
+
+    const dadosObj = dados;
+
+    pegaDadosDoChamado(dadosObj)
+  }
+
+  const formikModal = useFormik({
+    initialValues: {
+      idModal:"",
+      clienteModal:"",
+      tituloModal:"",
+      dataChamadoModal:"",
+      statusModal:"",
+      tipoDeChamadoModal:""
+    },
+    onSubmit: (values, {resetForm}) => {
+      const dadosChamado = pegaDadosDoChamado()
+
+      chamados.filter((item) => {
+        if(item.idCM === dadosChamado.idCM){
+
+          dadosChamado.clienteCM = values.clienteModal
+          dadosChamado.tituloCM = values.tituloModal
+          dadosChamado.dataChamadoCM = values.dataChamadoModal
+          dadosChamado.statusCM = values.statusModal
+          dadosChamado.tipoDeChamadoCM = values.tipoDeChamadoModal
+
+        }
+      })
+
+      swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Chamado Alterado!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      resetForm({values:""})
+      fechaModal()
+    }
+  })
+
+  const fechaModal = () => {
+    const modalF = document.querySelector(".modal-edita-chamados");
+    modalF.style.cssText = "display:none;"
+  }
+
   return (
     <div id="sessao-chamados">
       <h3 className="titulo-chamados">
@@ -220,7 +281,7 @@ const Chamados = () => {
                   <td>
                     <button
                       className="btn-edit-chamado"
-                      onClick={() => editaChamado()}
+                      onClick={() => abreModal(item)}
                     >
                       Editar
                     </button>
@@ -236,15 +297,19 @@ const Chamados = () => {
       <section className="modal-edita-chamados">
             <div className="titulo-exit">
                 <h4>Atualizar Chamado</h4>
-                <button className="exit-modal-chamados">X</button>
+                <button className="exit-modal-chamados" onClick={() => fechaModal()}>X</button>
             </div>
-            <form className="form-modal-chamados">
+            <form className="form-modal-chamados" onSubmit={formikModal.handleSubmit}>
                 <div className="box-modal-chamados">
                     <label className="lbl-modal-chamados">ID</label>
                     <input 
-                        className="ipt-modal-chamados"
+                        className="ipt-modal-chamados ipt-modal-disabled"
                         type="text"
-                        name="id"
+                        name="idModal"
+                        value={formikModal.values.idModal}
+                        onChange={formikModal.handleChange}
+                        placeholder="Não é possível alterar o ID gerado."
+                        disabled
                     />
                 </div>
                 <div className="box-modal-chamados">
@@ -252,7 +317,10 @@ const Chamados = () => {
                     <input 
                         className="ipt-modal-chamados"
                         type="text"
-                        name="cliente"
+                        name="clienteModal"
+                        value={formikModal.values.clienteModal}
+                        onChange={formikModal.handleChange}
+                        required
                     />
                 </div>
                 <div className="box-modal-chamados">
@@ -260,7 +328,10 @@ const Chamados = () => {
                     <input
                         className="ipt-modal-chamados" 
                         type="text"
-                        name="titulo"
+                        name="tituloModal"
+                        value={formikModal.values.tituloModal}
+                        onChange={formikModal.handleChange}
+                        required
                     />
                 </div>
                 <div className="container-modal">
@@ -269,29 +340,45 @@ const Chamados = () => {
                         <input
                             className="ipt-modal-date"
                             type="date"
-                            name="dataChamado"
+                            name="dataChamadoModal"
+                            value={formikModal.values.dataChamadoModal}
+                            onChange={formikModal.handleChange}
+                            required
                         />
                     </div>
                     <div className="box-modal-chamados">
                         <label className="lbl-modal-chamados">Status</label>
-                        <select className="selct-modal-chamados">
-                            <option value="Sem pressa">Sem pressa</option>
-                            <option value="Rapido">Rápido</option>
-                            <option value="Urgente">Urgente</option>
+                        <select 
+                          className="selct-modal-chamados"
+                          name="statusModal"
+                          value={formikModal.values.statusModal}
+                          onChange={formikModal.handleChange}
+                          >
+                            <option value="Ativo">Ativo</option>
+                            <option value="Em espera">Em espera</option>
+                            <option value="Inativo">Inativo</option>
                         </select>
                     </div>
                 </div>
                 <div className="box-modal-chamados">
                     <label className="lbl-modal-chamados">Tipo de Chamado</label>
-                    <input
-                        className="ipt-modal-chamados" 
-                        type="text"
-                        name="tipoChamado"
-                    />
+                    <select 
+                      className="selct-tipo-chamados"
+                      name="tipoDeChamadoModal"
+                      value={formikModal.values.tipoDeChamadoModal}
+                      onChange={formikModal.handleChange} 
+                    >
+                      <option value="Sem pressa">Sem pressa</option>
+                      <option value="Rapido">Rápido</option>
+                      <option value="Urgente">Urgente</option>
+                    </select>
                 </div>
                 <div className="btn-submit-cancel">
-                    <button type="button" className="btn-cancel-modal">Cancelar</button>
-                    <button type="submit" className="btn-submit-modal">Salvar</button>
+                    <button type="button" className="btn-cancel-modal" onClick={() => fechaModal()}>Cancelar</button>
+                    <button 
+                      type="submit" 
+                      className="btn-submit-modal"
+                    >Salvar</button>
                 </div>
             </form>
       </section>
