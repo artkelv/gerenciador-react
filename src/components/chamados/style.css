@@ -170,8 +170,12 @@
 
 
 .modal-edita-chamados{
+    position: absolute;
+    top: 70px;
+    left: 33vw;
+    display: none;
     width: 400px;
-    /* height: 400px; */
+    box-shadow: 1px 1px 300px rgb(0, 0, 0);
     border: 1px solid rgb(153, 153, 153);
     border-radius: 5px;
     background-color: #fff;
@@ -202,12 +206,21 @@
     margin: 5px 0;
     color: rgb(94, 94, 94);
 }
+.selct-tipo-chamados{
+    width: 360px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid rgb(197, 197, 197); 
+}
 .ipt-modal-chamados{
     height: 30px;
     outline: unset;
     padding: 0 5px;
     border-radius: 3px;
     border: 1px solid rgb(197, 197, 197);
+}
+.ipt-modal-disabled{
+    cursor: no-drop;
 }
 .container-modal{
     display: flex;
