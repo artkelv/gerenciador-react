@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
 import { useContext } from "react";
 import { useFormik } from "formik";
+import {v4 as uuidv4} from 'uuid';
 
 import "../atendimento/style.css";
 
@@ -10,8 +11,23 @@ import swal from "sweetalert2";
 const Atendimento = () => {
     const [form, SetForm] = useState(false);
     const [btnVoltar, SetBtnVoltar] = useState("Novo Atendimento");
+    const [pesquisarAt, setPesquisarAt] = useState("");
+
+    let id = uuidv4();
  
-    const {atendimentos, setAtendimentos} = useContext(GlobalContext)
+    const {atendimentos, setAtendimentos} = useContext(GlobalContext);
+
+    /* CÓDIGO PARA PESQUISAR ATENDIMENTOS */
+
+    const pesquisarAtendimentos = (event) => {
+        setPesquisarAt(event.target.value)
+    }
+
+    const retornaAtendimentoPesquisado = () => {
+        
+    }
+
+    /* CÓDIGO PARA MOSTRAR O FORM DE ATENDIMENTOS */
 
     const formNovoAtendimento = () => {
         const formAtendimento = document.querySelector(".cadastrar-atendimento");
@@ -52,6 +68,7 @@ const Atendimento = () => {
               })
 
             const dadosAtendimento = {
+                idAT:id,
                 clienteAT: values.cliente,
                 dataAtendimentoAT: values.dataAtendimento,
                 assuntoAT: values.assunto,
@@ -135,7 +152,13 @@ const Atendimento = () => {
                 <section className="sessao-pesquisar-atendimento">
                     <label className="lbl-atendimento">ID do Atendimento</label>
                     <div>
-                        <input className="ipt-pesquisar-atendimento" type="text" placeholder="Informe o ID do atendimento"/>
+                        <input 
+                            className="ipt-pesquisar-atendimento"
+                            type="text" 
+                            placeholder="Informe o ID do atendimento"
+                            value={pesquisarAt}
+                            onChange={pesquisarAtendimentos}
+                        />
                         <button className="btn-pesquisar-atendimento">Pesquisar</button>
                     </div>
                 </section>
@@ -143,6 +166,7 @@ const Atendimento = () => {
                     <table className="tbl-atendimento">
                         <thead>
                             <tr className="dados-atendimento">
+                                <th>ID</th>
                                 <th>Cliente</th>
                                 <th>Assunto</th>
                                 <th>Tipo de Atendimento</th>
@@ -154,6 +178,7 @@ const Atendimento = () => {
                             {atendimentos.map((item, index) => {
                                 return(
                                     <tr key={index} className="atendimentos-cadastrados">
+                                        <td>{item.idAT}</td>
                                         <td>{item.clienteAT}</td>
                                         <td>{item.assuntoAT}</td>
                                         <td>{item.tipoDeAtendimentoAT}</td>
