@@ -127,7 +127,7 @@
 }
 .dados-atendimento th{
     width: 200px;
-    padding: 10px 0;
+    padding: 10px 10px;
     color: rgb(58, 58, 58);
     border:1px solid rgb(114, 114, 114);
 }
