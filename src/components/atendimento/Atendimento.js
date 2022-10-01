@@ -12,6 +12,7 @@ const Atendimento = () => {
     const [form, SetForm] = useState(false);
     const [btnVoltar, SetBtnVoltar] = useState("Novo Atendimento");
     const [pesquisarAt, setPesquisarAt] = useState("");
+    const [dadosRetornados, setDadosRetornados] = useState()
 
     let id = uuidv4();
  
@@ -23,8 +24,35 @@ const Atendimento = () => {
         setPesquisarAt(event.target.value)
     }
 
+    const pegaIdPesquisado = () => {
+
+    }
+
     const retornaAtendimentoPesquisado = () => {
         
+        const result = atendimentos.filter((item) => {
+            if(item.idAT === pesquisarAt){
+                setDadosRetornados([item])
+            } else{
+                setDadosRetornados()
+            }
+        })
+        /* const result = atendimentos.filter((item) => {
+            if(item.idAT === pesquisarAt){
+                return (<div>
+                    <span>{item.idAT}</span>
+                    <span>{item.clienteAT}</span>
+                    <span>{item.assuntoAT}</span>
+                    <span>{item.tipoDeAtendimentoAT}</span>
+                    <span>{item.dataAtendimentoAT}</span>
+                    <span>{item.mensagemAT}</span>
+                </div>)
+            } else{
+                return (
+                    <div>O ID do chamado não existe.</div>
+                )
+            }
+        }) */
     }
 
     /* CÓDIGO PARA MOSTRAR O FORM DE ATENDIMENTOS */
@@ -146,7 +174,7 @@ const Atendimento = () => {
                                 onChange={formik.handleChange}
                             ></textarea>
                         </div>
-                        <button className="btn-cadastrar-atendimento">Cadastrar atendimento</button>
+                        <button className="btn-cadastrar-atendimento" type="submit">Cadastrar atendimento</button>
                     </div>
                 </form>
                 <section className="sessao-pesquisar-atendimento">
@@ -159,9 +187,38 @@ const Atendimento = () => {
                             value={pesquisarAt}
                             onChange={pesquisarAtendimentos}
                         />
-                        <button className="btn-pesquisar-atendimento">Pesquisar</button>
+                        <button className="btn-pesquisar-atendimento" onClick={() => retornaAtendimentoPesquisado()}>Pesquisar</button>
                     </div>
                 </section>
+
+                {dadosRetornados? dadosRetornados.map((item, index) => {
+                    return (<div key={index}>
+                        <h4 className="titulo-pesquisa-atendimento">Resultados da sua busca:</h4>
+                        <table className="tbl-pesquisa-atendimento">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Clente</th>
+                                    <th>Assunto</th>
+                                    <th>Tipo de Atendimento</th>
+                                    <th>Data do Atendimento</th>
+                                    <th>Registro de atendimento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="dados-pesquisa-at">
+                                    <td>{item.idAT}</td>
+                                    <td>{item.clienteAT}</td>
+                                    <td>{item.assuntoAT}</td>
+                                    <td>{item.tipoDeAtendimentoAT}</td>
+                                    <td>{item.dataAtendimentoAT}</td>
+                                    <td>{item.mensagemAT}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>)
+                }) : <p className="zero-resultados-atendimento">Sem resultados no momento.</p>}
+
                 <section className="sessao-tbl-atendimento">
                     <table className="tbl-atendimento">
                         <thead>
