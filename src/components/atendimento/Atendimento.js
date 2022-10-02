@@ -12,7 +12,7 @@ const Atendimento = () => {
     const [form, SetForm] = useState(false);
     const [btnVoltar, SetBtnVoltar] = useState("Novo Atendimento");
     const [pesquisarAt, setPesquisarAt] = useState("");
-    const [dadosRetornados, setDadosRetornados] = useState()
+    const [dadosRetornadoPesquisa, setDadosRetornadoPesquisa] = useState("");
 
     let id = uuidv4();
  
@@ -24,35 +24,15 @@ const Atendimento = () => {
         setPesquisarAt(event.target.value)
     }
 
-    const pegaIdPesquisado = () => {
-
-    }
-
     const retornaAtendimentoPesquisado = () => {
-        
-        const result = atendimentos.filter((item) => {
+        atendimentos.filter((item) => {
             if(item.idAT === pesquisarAt){
-                setDadosRetornados([item])
-            } else{
-                setDadosRetornados()
+                setDadosRetornadoPesquisa([item])
+            }else{
+                
             }
         })
-        /* const result = atendimentos.filter((item) => {
-            if(item.idAT === pesquisarAt){
-                return (<div>
-                    <span>{item.idAT}</span>
-                    <span>{item.clienteAT}</span>
-                    <span>{item.assuntoAT}</span>
-                    <span>{item.tipoDeAtendimentoAT}</span>
-                    <span>{item.dataAtendimentoAT}</span>
-                    <span>{item.mensagemAT}</span>
-                </div>)
-            } else{
-                return (
-                    <div>O ID do chamado não existe.</div>
-                )
-            }
-        }) */
+        
     }
 
     /* CÓDIGO PARA MOSTRAR O FORM DE ATENDIMENTOS */
@@ -191,14 +171,14 @@ const Atendimento = () => {
                     </div>
                 </section>
 
-                {dadosRetornados? dadosRetornados.map((item, index) => {
-                    return (<div key={index}>
+                {dadosRetornadoPesquisa? dadosRetornadoPesquisa.map((item, index) => {
+                    return (<div key={index} className="TESTE">
                         <h4 className="titulo-pesquisa-atendimento">Resultados da sua busca:</h4>
                         <table className="tbl-pesquisa-atendimento">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Clente</th>
+                                    <th>Cliente</th>
                                     <th>Assunto</th>
                                     <th>Tipo de Atendimento</th>
                                     <th>Data do Atendimento</th>
