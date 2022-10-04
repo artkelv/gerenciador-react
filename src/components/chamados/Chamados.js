@@ -285,30 +285,33 @@ const Chamados = () => {
 
       <section className="tbl-pesquisa-chamados">
         {dadosRetornados? 
-          <table className="tbl-result-chamados">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Cliente</th>
-                <th>Titulo</th>
-                <th>Data do chamados</th>
-                <th>Status</th>
-                <th>Tipo de chamados</th>
-                <th>Mensagem</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{comparaChamados?.idCM}</td>
-                <td>{comparaChamados?.clienteCM}</td>
-                <td>{comparaChamados?.tituloCM}</td>
-                <td>{comparaChamados?.dataChamadoCM}</td>
-                <td>{comparaChamados?.statusCM}</td>
-                <td>{comparaChamados?.tipoDeChamadoCM}</td>
-                <td>{comparaChamados?.mensagemCM}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div>
+            <h4 className="titulo-pesquisa-chamados">Resultados da sua busca:</h4>
+            <table className="tbl-result-chamados">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Cliente</th>
+                  <th>Titulo</th>
+                  <th>Data do chamados</th>
+                  <th>Status</th>
+                  <th>Tipo de chamados</th>
+                  <th>Mensagem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{comparaChamados?.idCM}</td>
+                  <td>{comparaChamados?.clienteCM}</td>
+                  <td>{comparaChamados?.tituloCM}</td>
+                  <td>{comparaChamados?.dataChamadoCM}</td>
+                  <td>{comparaChamados?.statusCM}</td>
+                  <td>{comparaChamados?.tipoDeChamadoCM}</td>
+                  <td>{comparaChamados?.mensagemCM}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         : <p className="zero-resultados-chamados">Sem resultados no momento.</p>} 
       </section>
 

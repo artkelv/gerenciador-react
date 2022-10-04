@@ -272,7 +272,7 @@
     border-radius: 3px;
     cursor: pointer;
 }
-.zero-resultados-chamados{
+.titulo-pesquisa-chamados{
     margin: 30px 0;
     color: #396ffa;
 }
@@ -291,4 +291,8 @@
     font-size: 13px;
     border: 2px solid #396ffa;
     padding: 5px;
+}
+.zero-resultados-chamados{
+    margin: 30px 0;
+    color: #396ffa;
 }
