@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useFormik } from "formik";
 import {v4 as uuidv4} from 'uuid';
 
@@ -12,29 +11,31 @@ const Atendimento = () => {
     const [form, SetForm] = useState(false);
     const [btnVoltar, SetBtnVoltar] = useState("Novo Atendimento");
     const [pesquisarAt, setPesquisarAt] = useState("");
-    const [dadosRetornadoPesquisa, setDadosRetornadoPesquisa] = useState("");
+    const [dadosRetornadoPesquisa, setDadosRetornadoPesquisa] = useState(false);
 
     let id = uuidv4();
  
     const {atendimentos, setAtendimentos} = useContext(GlobalContext);
 
     /* CÓDIGO PARA PESQUISAR ATENDIMENTOS */
-
-    const pesquisarAtendimentos = (event) => {
-        setPesquisarAt(event.target.value)
+    const encontraAtendimentos = (dados) => {
+        return dados.idAT === pesquisarAt
+    }
+    const comparaAtendimento = atendimentos.find(encontraAtendimentos)
+    
+    const clickAtendimento = () => {
+        if(comparaAtendimento){
+            setDadosRetornadoPesquisa(true)
+        }else{
+            setDadosRetornadoPesquisa(false)
+        }
     }
 
-    const retornaAtendimentoPesquisado = () => {
-        atendimentos.filter((item) => {
-            if(item.idAT === pesquisarAt){
-                setDadosRetornadoPesquisa([item])
-            }else{
-                
-            }
-        })
-        
-    }
-
+    useEffect(() => {
+        if(!comparaAtendimento){
+            setDadosRetornadoPesquisa(false)
+        }
+    }, [comparaAtendimento])
     /* CÓDIGO PARA MOSTRAR O FORM DE ATENDIMENTOS */
 
     const formNovoAtendimento = () => {
@@ -87,6 +88,7 @@ const Atendimento = () => {
             resetForm({values:""})
         }
     })
+
     return(
         <div id="sessao-atendimento">
                 <h3 className="titulo-atendimento"><span className="subtitulo-atendimento">Atendimentos</span></h3>
@@ -165,14 +167,14 @@ const Atendimento = () => {
                             type="text" 
                             placeholder="Informe o ID do atendimento"
                             value={pesquisarAt}
-                            onChange={pesquisarAtendimentos}
+                            onChange={(event) => setPesquisarAt(event.target.value)}
                         />
-                        <button className="btn-pesquisar-atendimento" onClick={() => retornaAtendimentoPesquisado()}>Pesquisar</button>
+                        <button className="btn-pesquisar-atendimento" onClick={() => clickAtendimento()}>Pesquisar</button>
                     </div>
                 </section>
 
-                {dadosRetornadoPesquisa? dadosRetornadoPesquisa.map((item, index) => {
-                    return (<div key={index} className="TESTE">
+                {dadosRetornadoPesquisa?
+                    <div>
                         <h4 className="titulo-pesquisa-atendimento">Resultados da sua busca:</h4>
                         <table className="tbl-pesquisa-atendimento">
                             <thead>
@@ -187,17 +189,17 @@ const Atendimento = () => {
                             </thead>
                             <tbody>
                                 <tr className="dados-pesquisa-at">
-                                    <td>{item.idAT}</td>
-                                    <td>{item.clienteAT}</td>
-                                    <td>{item.assuntoAT}</td>
-                                    <td>{item.tipoDeAtendimentoAT}</td>
-                                    <td>{item.dataAtendimentoAT}</td>
-                                    <td>{item.mensagemAT}</td>
+                                    <td>{comparaAtendimento?.idAT}</td>
+                                    <td>{comparaAtendimento?.clienteAT}</td>
+                                    <td>{comparaAtendimento?.assuntoAT}</td>
+                                    <td>{comparaAtendimento?.tipoDeAtendimentoAT}</td>
+                                    <td>{comparaAtendimento?.dataAtendimentoAT}</td>
+                                    <td>{comparaAtendimento?.mensagemAT}</td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>)
-                }) : <p className="zero-resultados-atendimento">Sem resultados no momento.</p>}
+                    </div>
+                 : <p className="zero-resultados-atendimento">Sem resultados no momento.</p>}
 
                 <section className="sessao-tbl-atendimento">
                     <table className="tbl-atendimento">
