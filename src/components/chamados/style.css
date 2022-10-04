@@ -272,3 +272,23 @@
     border-radius: 3px;
     cursor: pointer;
 }
+.zero-resultados-chamados{
+    margin: 30px 0;
+    color: #396ffa;
+}
+.tbl-result-chamados{
+    width: 75vw;
+    margin: 50px  0;
+    border-collapse: collapse;
+    text-align: center;
+}
+.tbl-pesquisa-chamados thead tr th{
+    font-size: 10px;
+    padding: 5px 0;
+    border: 2px solid #396ffa;
+}
+.tbl-result-chamados tbody tr td{
+    font-size: 13px;
+    border: 2px solid #396ffa;
+    padding: 5px;
+}

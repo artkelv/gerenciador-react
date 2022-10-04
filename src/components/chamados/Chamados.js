@@ -6,15 +6,39 @@ import { useFormik } from "formik";
 
 import swal from "sweetalert2";
 import { GlobalContext } from "../../global/GlobalContext";
+import { useEffect } from "react";
 
 const Chamados = () => {
   const [form, SetForm] = useState(false);
   const [btnVoltar, SetBtnVoltar] = useState("Novo Chamado");
   const [dadosParaEdit, setDadosParaEdit] = useState();
+  const [pesquisaCm, setPesquisaCm] = useState();
+  const [dadosRetornados, setDadosRetornados] = useState(false);
 
   const { chamados, setChamados } = useContext(GlobalContext);
 
   const generateId = uuidv4();
+
+  /* COODIGO USADO PARA PESQUISAR UM CHAMADO */
+
+  const funcComparaChamados = (dados) => {
+    return dados.idCM === pesquisaCm
+  }
+  const comparaChamados = chamados.find(funcComparaChamados)
+  
+  const onClickChamados = () => {
+    if(comparaChamados){
+      setDadosRetornados(true)
+    }else{
+      setDadosRetornados(false)
+    }
+  }
+
+  useEffect(() => {
+    if(!comparaChamados){
+      setDadosRetornados(false)
+    }
+  }, [comparaChamados])
 
   /* CÓDIGO USADO PARA MOSTRAR O FORM DE CADASTRAR CHAMADOS */
 
@@ -24,11 +48,13 @@ const Chamados = () => {
       ".sessao-pesquisar-chamados"
     );
     const tblChamados = document.querySelector(".tbl-chamados");
+    const tblResultChamados = document.querySelector(".tbl-pesquisa-chamados");
 
     if (form === false) {
       formChamados.style.cssText = "display: block;";
       pesquisarChamados.style.cssText = "display: none;";
       tblChamados.style.cssText = "display: none;";
+      tblResultChamados.style.cssText = "display:none;"
 
       SetForm(true);
       SetBtnVoltar("Voltar");
@@ -36,6 +62,7 @@ const Chamados = () => {
       formChamados.style.cssText = "display:none;";
       pesquisarChamados.style.cssText = "display: block;";
       tblChamados.style.cssText = "display: block;";
+      tblResultChamados.style.cssText = "display:block;"
 
       SetForm(false);
       SetBtnVoltar("Novo Chamado");
@@ -133,7 +160,6 @@ const Chamados = () => {
     const modalF = document.querySelector(".modal-edita-chamados");
     modalF.style.cssText = "display:none;"
   }
-
   return (
     <div id="sessao-chamados">
       <h3 className="titulo-chamados">
@@ -155,8 +181,9 @@ const Chamados = () => {
               className="buscar-chamados"
               type="text"
               placeholder="Informe o ID do chamado"
+              onChange={(e) => setPesquisaCm(e.target.value)}
             />
-            <button className="btn-pesquisar-chamado">Pesquisar</button>
+            <button className="btn-pesquisar-chamado" onClick={() => onClickChamados()}>Pesquisar</button>
           </div>
         </section>
       </section>
@@ -255,6 +282,37 @@ const Chamados = () => {
           </button>
         </div>
       </form>
+
+      <section className="tbl-pesquisa-chamados">
+        {dadosRetornados? 
+          <table className="tbl-result-chamados">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Titulo</th>
+                <th>Data do chamados</th>
+                <th>Status</th>
+                <th>Tipo de chamados</th>
+                <th>Mensagem</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{comparaChamados?.idCM}</td>
+                <td>{comparaChamados?.clienteCM}</td>
+                <td>{comparaChamados?.tituloCM}</td>
+                <td>{comparaChamados?.dataChamadoCM}</td>
+                <td>{comparaChamados?.statusCM}</td>
+                <td>{comparaChamados?.tipoDeChamadoCM}</td>
+                <td>{comparaChamados?.mensagemCM}</td>
+              </tr>
+            </tbody>
+          </table>
+        : <p className="zero-resultados-chamados">Sem resultados no momento.</p>} 
+      </section>
+
+
       <section className="sessao-tbl-chamados">
         <table className="tbl-chamados">
           <thead>

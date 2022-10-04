@@ -36,17 +36,20 @@ const Atendimento = () => {
             setDadosRetornadoPesquisa(false)
         }
     }, [comparaAtendimento])
+    
     /* CÓDIGO PARA MOSTRAR O FORM DE ATENDIMENTOS */
 
     const formNovoAtendimento = () => {
         const formAtendimento = document.querySelector(".cadastrar-atendimento");
         const pesquisarAtendimento = document.querySelector(".sessao-pesquisar-atendimento");
         const sessaoTbl = document.querySelector(".sessao-tbl-atendimento");
+        const dadosRetornados = document.querySelector(".dados-retornado-pesquisa");
 
         if(form === false){
             formAtendimento.style.cssText = "display: block;"
             pesquisarAtendimento.style.cssText = "display: none;"
             sessaoTbl.style.cssText = "display:none;"
+            dadosRetornados.style.cssText = "display:none;"
 
             SetForm(true)
             SetBtnVoltar("Voltar")
@@ -54,6 +57,7 @@ const Atendimento = () => {
             formAtendimento.style.cssText = "display: none;"
             pesquisarAtendimento.style.cssText = "display: block;"
             sessaoTbl.style.cssText = "display:block;"
+            dadosRetornados.style.cssText = "display: block;"
 
             SetForm(false)
             SetBtnVoltar("Novo Atendimento")
@@ -172,7 +176,7 @@ const Atendimento = () => {
                         <button className="btn-pesquisar-atendimento" onClick={() => clickAtendimento()}>Pesquisar</button>
                     </div>
                 </section>
-
+                <div className="dados-retornado-pesquisa">
                 {dadosRetornadoPesquisa?
                     <div>
                         <h4 className="titulo-pesquisa-atendimento">Resultados da sua busca:</h4>
@@ -200,6 +204,7 @@ const Atendimento = () => {
                         </table>
                     </div>
                  : <p className="zero-resultados-atendimento">Sem resultados no momento.</p>}
+                </div>
 
                 <section className="sessao-tbl-atendimento">
                     <table className="tbl-atendimento">
