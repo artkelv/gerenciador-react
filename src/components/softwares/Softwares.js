@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useFormik } from "formik";
 import swal from "sweetalert2";
 
@@ -8,8 +8,32 @@ import { GlobalContext } from "../../global/GlobalContext";
 const Softwares = () => {
     const [form, SetForm] = useState(false);
     const [nomeBtn, SetNomeBtn] = useState("Novo Software");
+    const [pesquisaSf, setPesquisaSf] = useState();
+    const [retornaDados, setRetornarDados] = useState(false)
 
     const {softwares, setSoftwares} = useContext(GlobalContext);
+
+    /* CODIGO USADO PARA PESQUISAR SOFTWARE */
+
+    const funcComparaPesquisa = (dados) => {
+        return dados.nomeSF === pesquisaSf
+    }
+    
+    const comparaSoftware = softwares.find(funcComparaPesquisa);
+    
+    const alteraEstadoCliente = () =>{
+        if(comparaSoftware){
+            setRetornarDados(true)
+        }else{
+            setRetornarDados(false)
+        }
+    }
+
+    useEffect(() => {
+        if(!comparaSoftware){
+            setRetornarDados(false)
+        }
+    }, [comparaSoftware])
 
     const mostrarFormSoftware = () => {
         const formSoftware = document.querySelector(".cadastrar-software");
@@ -35,7 +59,7 @@ const Softwares = () => {
             versao: "",
             observacao: ""
         },
-        onSubmit: (values) => {
+        onSubmit: (values, {resetForm}) => {
             swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -49,6 +73,7 @@ const Softwares = () => {
                 observacaoSF: values.observacao
             }
             setSoftwares(() => [...softwares, dadosSoftwares])
+            resetForm({values:""})
         }
     })
     return(
@@ -94,14 +119,42 @@ const Softwares = () => {
                                 placeholder="Informe a Versão do software"
                             />
                         </div>
-                        <button className="btn-cadastrar-software">Cadastrar</button>
+                        <button type="submit" className="btn-cadastrar-software">Cadastrar</button>
                     </div>
                 </form>
                 <section className="sessao-buscar-software">
                     <section className="achar-software">
                         <p className="nome-software">Nome</p>
-                        <input className="entrada-nome-software" type="text" placeholder="Informe o nome do software"></input>
-                        <button className="btn-pesquisar-software">Pesquisar</button>
+                        <input 
+                            className="entrada-nome-software" 
+                            type="text" 
+                            placeholder="Informe o nome do software"
+                            onChange={(e) => setPesquisaSf(e.target.value)}
+                        ></input>
+                        <button className="btn-pesquisar-software" onClick={() => alteraEstadoCliente()}>Pesquisar</button>
+                    </section>
+                    <section>
+                        {retornaDados? 
+                            <div>
+                                <h4 className="titulo-result-software">Resultado da sua pesquisa:</h4>
+                                <table className="tbl-result-softwares">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Versão</th>
+                                            <th>Observações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{comparaSoftware?.nomeSF}</td>
+                                            <td>{comparaSoftware?.versaoSF}</td>
+                                            <td>{comparaSoftware?.observacaoSF}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>    
+                        : <p className="sem-resultados-softwares">Sem resultado no momento.</p>}
                     </section>
                     <section>
                         <table className="tbl-software">
