@@ -78,7 +78,7 @@ const Softwares = () => {
     })
     return(
         <div id="sessao-softwares">
-            <section>
+            <section className="subsessao-softwares">
                 <h3 className="titulo-software"><span className="subtitulo-software">Softwares</span></h3>
                 <button className="btn-novo-software" onClick={() => {mostrarFormSoftware()}}>{nomeBtn}</button>
                 <form className="cadastrar-software" onSubmit={formik.handleSubmit}>
@@ -154,7 +154,7 @@ const Softwares = () => {
                                     </tbody>
                                 </table>
                             </div>    
-                        : <p className="sem-resultados-softwares">Sem resultado no momento.</p>}
+                        : <p className="sem-resultados-softwares">Sem resultados no momento.</p>}
                     </section>
                     <section>
                         <table className="tbl-software">
