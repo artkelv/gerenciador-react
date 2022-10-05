@@ -137,12 +137,6 @@
     padding: 10px 5px;
     text-align: center;
 }
-.dados-pesquisa-at td{
-    border:2px solid rgb(100, 247, 2);
-    font-size: 13px;
-    padding: 15px 5px;
-    text-align: center;
-}
 .titulo-pesquisa-atendimento{
     margin: 30px 0;
     color: #396ffa;
@@ -155,7 +149,14 @@
 .tbl-pesquisa-atendimento thead tr th{
     font-size: 10px;
     padding: 5px 0;
-    border: 2px solid rgb(100, 247, 2);
+    color: #1a5afa;
+    border: 2px solid rgb(199, 199, 199);
+}
+.dados-pesquisa-at td{
+    border: 2px solid rgb(199, 199, 199);
+    font-size: 13px;
+    padding: 15px 5px;
+    text-align: center;
 }
 .zero-resultados-atendimento{
     margin: 30px 0;

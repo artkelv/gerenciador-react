@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import swal from "sweetalert2";
 
@@ -9,9 +9,31 @@ import { GlobalContext } from "../../global/GlobalContext";
 const Clientes = () => {
 
     const [form, setForm] = useState(false);
-    const [btnVoltar, setBtnVoltar] = useState("Novo Cliente")
+    const [btnVoltar, setBtnVoltar] = useState("Novo Cliente");
+    const [pesquisarCl, setPesquisarCl] = useState();
+    const [dadosRetornados, setDadosRetornados] = useState(false);
 
     const {clientes, setClientes} = useContext(GlobalContext);
+
+    /* CÓDIGO USADO PARA PESQUISAR UMA EMPRESA */
+
+    const funcComparaClientes = (dados) => {
+        return dados.rsocialCL === pesquisarCl
+    }
+    const comparaClientes = clientes.find(funcComparaClientes)
+
+    const alteraEstadoDeDados = () => {
+        if(comparaClientes){
+            setDadosRetornados(true)
+        }else{
+            setDadosRetornados(false)
+        }
+    }
+    useEffect(() => {
+        if(!comparaClientes){
+            setDadosRetornados(false)
+        }
+    }, [comparaClientes]);
 
     const MostrarFormAddNovaEmpresa = () => {
         const mostrarFormParaAddEmpresa = document.querySelector(".cadastrar-empresa");
@@ -222,9 +244,43 @@ const Clientes = () => {
             <section className="buscar-cliente">
                 <section className="achar-cliente">
                     <p className="nome-rsocial">Razão social</p>
-                    <input className="entrada-nome-cliente" type="text" placeholder="Informe a razão social da empresa"></input>
-                    <button className="btn-pesquisar-cliente">Pesquisar</button>
+                    <input 
+                        className="entrada-nome-cliente" 
+                        type="text" 
+                        placeholder="Informe a razão social da empresa"
+                        onChange={(e) => setPesquisarCl(e.target.value)}
+                    ></input>
+                    <button className="btn-pesquisar-cliente" onClick={() => alteraEstadoDeDados()}>Pesquisarr</button>
                 </section>
+
+                <section className="tbl-pesquisa-clientes">
+                    {dadosRetornados?
+                    <div>
+                        <h4 className="titulo-pesquisa-cliente">Resultados da sua busca:</h4>
+                        <table className="tbl-result-clientes">
+                            <thead>
+                                <tr>
+                                    <th>Razão Social</th>
+                                    <th>Nome Fantasia</th>
+                                    <th>Proprietário</th>
+                                    <th>Cidade</th>
+                                    <th>E-mail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{comparaClientes?.rsocialCL}</td>
+                                    <td>{comparaClientes?.nomeFantasiaCL}</td>
+                                    <td>{comparaClientes?.proprietarioCL}</td>
+                                    <td>{comparaClientes?.cidadeCL}</td>
+                                    <td>{comparaClientes?.emailCL}</td>
+                                </tr>
+                            </tbody>
+                        </table>    
+                    </div> 
+                : <p className="zero-resultados-clientes">Sem resultados no momento.</p>}
+                </section>
+
                 <section>
                     <table className="tbl-cliente">
                         <thead>
