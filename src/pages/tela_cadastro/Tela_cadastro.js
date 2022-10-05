@@ -41,6 +41,7 @@ const TelaCadastro = () => {
             mensagemDeAviso()
         }
     })
+
     return(
         <div id="sessao-tela-cadastro">
             <section className="background-cadastro">
@@ -79,7 +80,7 @@ const TelaCadastro = () => {
                     <button className="btn-tela-cadastro" type="submit">Cadastrar</button>
                 </form>
                 <p className="obg-cadastro">Obrigado por usar nosso serviço!</p>
-                <button className="btn-fazer-login" type="button" onClick={() => navigate("/")}>Fazer login</button>
+                <button className="btn-fazer-login" type="submit">Fazer login</button>
             </section>
         </div>
     )

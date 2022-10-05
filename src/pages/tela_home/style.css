@@ -46,3 +46,11 @@ ion-icon {
 .over:hover{
     background-color: #54639c; 
 }
+.btn-ir-login{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    text-transform: capitalize;
+    font-size: 15px;
+    cursor: pointer;
+}

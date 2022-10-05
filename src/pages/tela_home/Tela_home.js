@@ -3,13 +3,15 @@ import { GlobalContext } from '../../global/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import useRenderizaTela from '../../hooks/useRenderizaTela';
 
+import Swal from 'sweetalert2';
+
 import "../tela_home/style.css";
 
 const TelaHome = () => {
   
   const {tela, setTela} = useContext(GlobalContext)
   const hookUse = useRenderizaTela(tela)
-  
+
   const navigate = useNavigate();
 
   return (
@@ -58,14 +60,9 @@ const TelaHome = () => {
             </a>
           </li>
         </ul>
-        <ul>
-          <li className="bottom" onClick={() => {navigate("/")}}>
-            <a href="" className="over">
-              <ion-icon name="power"></ion-icon>
-              <span className="title">sair</span>
-            </a>
-          </li>
-        </ul>
+        <button className="btn-ir-login over" onClick={() => navigate("/")}>
+          <ion-icon name="power"></ion-icon>  sair
+        </button>
       </nav>
       {hookUse}
     </div>

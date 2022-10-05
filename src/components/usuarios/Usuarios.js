@@ -305,7 +305,7 @@ const Usuarios = () => {
                     <input 
                         className="entrada-nome" 
                         type="text" 
-                        placeholder="Informe o nome do usuário"
+                        placeholder="Informe o CPF do usuário"
                         onChange={(e) => setPesquisaCpfUser(e.target.value)}
                     ></input>
                     <button className="btn-pesquisar" onClick={() => alteraEstadoUser()}>Pesquisar</button>
