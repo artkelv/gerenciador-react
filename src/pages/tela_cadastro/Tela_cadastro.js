@@ -6,14 +6,20 @@ import { useContext } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
 
 import backgroundSignUp from "../../assets/new_back_signup.jpg";
+
 import Swal from 'sweetalert2';
+
+import {v4 as uuidv4} from 'uuid';
+
 
 const TelaCadastro = () => {
     const navigate = useNavigate();
-    
-    const {usuariosCadastrados, setUsuariosCadastrados} = useContext(GlobalContext);
+    const myId = uuidv4()
+
+    const {usuariosCadastrados, setUsuariosCadastrados, setToken} = useContext(GlobalContext);
 
     const mensagemDeAviso = () => {
+        setToken(myId)
         Swal.fire({
             position: 'center',
             icon: 'success',

@@ -5,12 +5,16 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
 
+import {v4 as uuidv4} from 'uuid';
+
 import Swal from "sweetalert2";
 
 const TelaLogin = () => {
     
     const navigate = useNavigate();
-    const {usuariosCadastrados, setUsuariosCadastrados} = useContext(GlobalContext);
+    const myid = uuidv4();
+
+    const {usuariosCadastrados, setUsuariosCadastrados, setToken} = useContext(GlobalContext);
 
     const formik = useFormik({
         initialValues: {
@@ -30,6 +34,7 @@ const TelaLogin = () => {
                     showConfirmButton: false,
                     timer: 1000
                 })
+                setToken(myid)
                 navigate("/home")
             }else {
                 Swal.fire({
