@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { useContext, useState } from "react"
 import { GlobalContext } from "../../global/GlobalContext";
+import { useEffect } from "react";
 
 import swal from "sweetalert2";
 
@@ -9,8 +10,33 @@ import "../usuarios/style.css";
 const Usuarios = () => {
     const [form, setForm] = useState(false);
     const [btnTexto, SetBtnTexto] = useState("Novo Usuário");
+    const [pesquisaCpfUser, setPesquisaCpfUser] = useState();
+    const [dadosRetornados, setDadosRetornados] = useState(false);
+
 
     const {usuarios, setUsuarios} = useContext(GlobalContext);
+
+    /* CODIGO USADO PARA PESQUISAR USUARIO */
+
+    const funcComparaCpfUser = (dados) => {
+        return dados.cpfUse == pesquisaCpfUser
+    }
+
+    const comparaCpfUser = usuarios.find(funcComparaCpfUser);
+
+    const alteraEstadoUser = () => {
+        if(comparaCpfUser){
+            setDadosRetornados(true)
+        }else{
+            setDadosRetornados(false)
+        }
+    }
+
+    useEffect(() => {
+        if(!comparaCpfUser){
+            setDadosRetornados(false)
+        }
+    }, [comparaCpfUser])
 
     const mostrarFormParaAddUsuario = () => {
         
@@ -276,9 +302,41 @@ const Usuarios = () => {
             <section className="buscar-usuario">
                 <section className="achar-usuario">
                     <p className="nome-usuario">Nome</p>
-                    <input className="entrada-nome" type="text" placeholder="Informe o nome do usuário"></input>
-                    <button className="btn-pesquisar">Pesquisar</button>
+                    <input 
+                        className="entrada-nome" 
+                        type="text" 
+                        placeholder="Informe o nome do usuário"
+                        onChange={(e) => setPesquisaCpfUser(e.target.value)}
+                    ></input>
+                    <button className="btn-pesquisar" onClick={() => alteraEstadoUser()}>Pesquisar</button>
                 </section>
+                
+                <section>
+                    {dadosRetornados?
+                    <div> 
+                        <h4 className="titulo-pesquisa-usuarios">Resultado da seu pesquisa:</h4>
+                        <table className="tbl-result-usuarios">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>RG</th>
+                                    <th>Cargo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{comparaCpfUser?.nomeUse}</td>
+                                    <td>{comparaCpfUser?.cpfUse}</td>
+                                    <td>{comparaCpfUser?.rgUse}</td>
+                                    <td>{comparaCpfUser?.cargoUse}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>   
+                        : <p className="zero-resultados-cliente">Sem resultado no momento.</p>}
+                </section>
+
                 <section>
                     <table className="tbl-usuarios">
                         <thead>
