@@ -86,7 +86,7 @@ const TelaCadastro = () => {
                     <button className="btn-tela-cadastro" type="submit">Cadastrar</button>
                 </form>
                 <p className="obg-cadastro">Obrigado por usar nosso serviço!</p>
-                <button className="btn-fazer-login" type="submit">Fazer login</button>
+                <button className="btn-fazer-login" type="submit" onClick={() => navigate("/")}>Fazer login</button>
             </section>
         </div>
     )
