@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../global/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import useRenderizaTela from '../../hooks/useRenderizaTela';
@@ -9,10 +9,31 @@ import "../tela_home/style.css";
 
 const TelaHome = () => {
   
-  const {tela, setTela} = useContext(GlobalContext)
-  const hookUse = useRenderizaTela(tela)
+  const {tela, setTela} = useContext(GlobalContext);
+
+  const hookUse = useRenderizaTela(tela);
+
+  const { token, setToken } = useContext(GlobalContext);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(token === undefined){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Você não tem permissão para acessar esta página!',
+        timer: 2500
+      })
+      navigate("/")
+    }
+  })
+
+  const logout = () => {
+    setTela("menu")
+    setToken(undefined)
+    navigate("/")
+  }
 
   return (
     <div id="main-content">
@@ -60,7 +81,7 @@ const TelaHome = () => {
             </a>
           </li>
         </ul>
-        <button className="btn-ir-login over" onClick={() => navigate("/")}>
+        <button className="btn-ir-login over" onClick={() => logout()}>
           <ion-icon name="power"></ion-icon>  sair
         </button>
       </nav>
