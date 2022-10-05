@@ -243,9 +243,11 @@ const Chamados = () => {
               onChange={formik.handleChange}
               required
             >
-              <option value="Ativo">ativo</option>
-              <option value="Inativo">inativo</option>
-              <option value="Em espera">em espera</option>
+              <option value="">Escolha uma opção</option>
+              <option value="Em Aberto">Em Aberto</option>
+              <option value="Em espera">Em espera</option>
+              <option value="Vencido">Vencido</option>
+              <option value="Encerrado">Encerrado</option>
             </select>
           </div>
           <div className="container-chamados">
@@ -257,6 +259,7 @@ const Chamados = () => {
               onChange={formik.handleChange}
               required
             >
+              <option value="">Escolha uma opção</option>
               <option value="Sem pressa">Sem pressa</option>
               <option value="Rápido">Rápido</option>
               <option value="Urgente">Urgente</option>
@@ -415,9 +418,11 @@ const Chamados = () => {
                           value={formikModal.values.statusModal}
                           onChange={formikModal.handleChange}
                           >
-                            <option value="Ativo">Ativo</option>
+                            <option value="">Escolha uma opção</option>
+                            <option value="Em Aberto">Em Aberto</option>
                             <option value="Em espera">Em espera</option>
-                            <option value="Inativo">Inativo</option>
+                            <option value="Vencido">Vencido</option>
+                            <option value="Encerrado">Encerrado</option>
                         </select>
                     </div>
                 </div>
@@ -429,6 +434,7 @@ const Chamados = () => {
                       value={formikModal.values.tipoDeChamadoModal}
                       onChange={formikModal.handleChange} 
                     >
+                      <option value="">Escolha uma opção</option>
                       <option value="Sem pressa">Sem pressa</option>
                       <option value="Rapido">Rápido</option>
                       <option value="Urgente">Urgente</option>
