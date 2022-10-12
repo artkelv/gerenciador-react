@@ -46,7 +46,7 @@ const Atendimento = () => {
         const dadosRetornados = document.querySelector(".dados-retornado-pesquisa");
 
         if(form === false){
-            formAtendimento.style.cssText = "display: block;"
+            formAtendimento.style.cssText = "display: block; margin-left: 13vw; margin-top:-15px;"
             pesquisarAtendimento.style.cssText = "display: none;"
             sessaoTbl.style.cssText = "display:none;"
             dadosRetornados.style.cssText = "display:none;"

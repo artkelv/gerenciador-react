@@ -51,7 +51,7 @@ const Chamados = () => {
     const tblResultChamados = document.querySelector(".tbl-pesquisa-chamados");
 
     if (form === false) {
-      formChamados.style.cssText = "display: block;";
+      formChamados.style.cssText = "display: block; margin-left: 13vw; margin-top:-15px;";
       pesquisarChamados.style.cssText = "display: none;";
       tblChamados.style.cssText = "display: none;";
       tblResultChamados.style.cssText = "display:none;"

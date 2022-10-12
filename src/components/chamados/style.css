@@ -45,9 +45,10 @@
 }
 .quarto-container-chamados{
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
 }
 .btn-cadastrar-chamado{
+    margin: 20px 0;
     background-color: #09c082;
     color: #fff;
     border: none;
@@ -135,7 +136,6 @@
     display: flex;
     color: #1a5afa;
     border: 1px solid #07a570;
-    box-shadow: 0px 0px 5px #07a570;
     padding: 9px;
     margin: 5px 0;
 }
