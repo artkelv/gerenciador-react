@@ -24,7 +24,7 @@
 .btn-novo-cliente{
     background-color: #4176fc;
     border: none;
-    width: 100px;
+    width: 150px;
     height: 30px;
     margin: 25px 0 20px;
     color: #fff;
@@ -37,7 +37,7 @@
     background-color: #09c082;
     color: #fff;
     border: none;
-    margin: 20px 0;
+    margin: 50px 0;
     width: 205px;
     height: 30px;
     outline: unset;
@@ -67,7 +67,7 @@
 }
 .segundo-container-cliente, .terceiro-container-cliente{
     display: flex;
-    
+    margin: 10px 0;
 }
 .box-cliente{
     display: flex;

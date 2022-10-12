@@ -40,7 +40,7 @@ const Clientes = () => {
         const retiraSessaoPesquisar = document.querySelector(".buscar-cliente");
 
         if(form === false){
-            mostrarFormParaAddEmpresa.style.cssText = "display:block;"
+            mostrarFormParaAddEmpresa.style.cssText = "display:block; margin-left: 13vw;"
             retiraSessaoPesquisar.style.cssText = "display:none;"
 
             setBtnVoltar("Voltar")
